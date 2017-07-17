@@ -1,0 +1,66 @@
+﻿@model MinisteriodeEducacionMVCApp.Models.Diploma
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Diploma</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.metadatos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.metadatos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigohex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigohex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigoLegalizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigoLegalizacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrupoDiploma.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrupoDiploma.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Legalizacion.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Legalizacion.estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idDiploma }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

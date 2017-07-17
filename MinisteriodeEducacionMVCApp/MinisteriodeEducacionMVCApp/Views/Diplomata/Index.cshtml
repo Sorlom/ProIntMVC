@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MinisteriodeEducacionMVCApp.Models.Diploma>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.metadatos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigohex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigoLegalizacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrupoDiploma.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Legalizacion.estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.metadatos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigohex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigoLegalizacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrupoDiploma.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Legalizacion.estado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idDiploma }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idDiploma }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idDiploma })
+        </td>
+    </tr>
+}
+
+</table>

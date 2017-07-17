@@ -1,0 +1,82 @@
+﻿@model MinisteriodeEducacionMVCApp.Models.ListadeEstudiantes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ListadeEstudiantes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidoPaterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoPaterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidoMaterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoMaterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pararelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pararelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.promedio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.promedio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gestion.nombrePromo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gestion.nombrePromo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrupoDiploma.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrupoDiploma.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idListaEstudiante }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

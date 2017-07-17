@@ -130,7 +130,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ColegiosController.cs" />
+    <Compile Include="Controllers\DiplomataController.cs" />
+    <Compile Include="Controllers\GrupoDiplomasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LegalizacionsController.cs" />
+    <Compile Include="Controllers\ListadeEstudiantesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,6 +247,31 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\Create.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\Delete.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\Details.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\Edit.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\Index.cshtml" />
+    <Content Include="Views\Diplomata\Create.cshtml" />
+    <Content Include="Views\Diplomata\Delete.cshtml" />
+    <Content Include="Views\Diplomata\Details.cshtml" />
+    <Content Include="Views\Diplomata\Edit.cshtml" />
+    <Content Include="Views\Diplomata\Index.cshtml" />
+    <Content Include="Views\GrupoDiplomas\Create.cshtml" />
+    <Content Include="Views\GrupoDiplomas\Delete.cshtml" />
+    <Content Include="Views\GrupoDiplomas\Details.cshtml" />
+    <Content Include="Views\GrupoDiplomas\Edit.cshtml" />
+    <Content Include="Views\GrupoDiplomas\Index.cshtml" />
+    <Content Include="Views\Legalizacions\Create.cshtml" />
+    <Content Include="Views\Legalizacions\Delete.cshtml" />
+    <Content Include="Views\Legalizacions\Details.cshtml" />
+    <Content Include="Views\Legalizacions\Edit.cshtml" />
+    <Content Include="Views\Legalizacions\Index.cshtml" />
+    <Content Include="Views\Colegios\Create.cshtml" />
+    <Content Include="Views\Colegios\Delete.cshtml" />
+    <Content Include="Views\Colegios\Details.cshtml" />
+    <Content Include="Views\Colegios\Edit.cshtml" />
+    <Content Include="Views\Colegios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

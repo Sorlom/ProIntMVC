@@ -1,0 +1,58 @@
+﻿@model MinisteriodeEducacionMVCApp.Models.Legalizacion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Legalizacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firmaDigital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firmaDigital)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalMinisterio.loginMinistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalMinisterio.loginMinistro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idLegalizacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
