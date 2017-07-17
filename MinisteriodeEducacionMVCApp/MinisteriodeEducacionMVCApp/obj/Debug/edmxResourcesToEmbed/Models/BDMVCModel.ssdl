@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProIntBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="codbit" />
+    </Key>
+    <Property Name="codbit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="terminal" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="aplicacion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Colegio">
+    <Key>
+      <PropertyRef Name="idColegio" />
+    </Key>
+    <Property Name="idColegio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="nroRegistroMins" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diploma">
+    <Key>
+      <PropertyRef Name="idDiploma" />
+    </Key>
+    <Property Name="idDiploma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="metadatos" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="idLegalizacion" Type="int" />
+    <Property Name="codigoLegalizacion" Type="varchar" MaxLength="800" />
+    <Property Name="idGrupoDiploma" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="nroRegistroEst" />
+    </Key>
+    <Property Name="nroRegistroEst" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="loginEstudiante" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="passEstudiante" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="CI" Type="int" Nullable="false" />
+    <Property Name="idDiploma" Type="int" />
+    <Property Name="idListaEstudiante" Type="int" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gestion">
+    <Key>
+      <PropertyRef Name="idGestion" />
+    </Key>
+    <Property Name="idGestion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="año" Type="int" Nullable="false" />
+    <Property Name="idColegio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GrupoDiploma">
+    <Key>
+      <PropertyRef Name="idGrupoDiploma" />
+    </Key>
+    <Property Name="idGrupoDiploma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nroRegistroPColegio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Legalizacion">
+    <Key>
+      <PropertyRef Name="idLegalizacion" />
+    </Key>
+    <Property Name="idLegalizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="firmaDigital" Type="varchar" MaxLength="800" Nullable="false" />
+    <Property Name="fechaL" Type="date" Nullable="false" />
+    <Property Name="nroRegistroMins" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListadeEstudiantes">
+    <Key>
+      <PropertyRef Name="idListaEstudiante" />
+    </Key>
+    <Property Name="idListaEstudiante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="pararelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="promedio" Type="float" Nullable="false" />
+    <Property Name="idGrupoDiploma" Type="int" Nullable="false" />
+    <Property Name="idGestion" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.PColegio_Rol' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="PColegio_Rol">
+    <Key>
+      <PropertyRef Name="idRol" />
+      <PropertyRef Name="nroRegistroPColegio" />
+    </Key>
+    <Property Name="idRol" Type="int" Nullable="false" />
+    <Property Name="nroRegistroPColegio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="CI" />
+    </Key>
+    <Property Name="CI" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="telefono" Type="int" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonalColegio">
+    <Key>
+      <PropertyRef Name="nroRegistroPColegio" />
+    </Key>
+    <Property Name="nroRegistroPColegio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="loginPColegio" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="passPColegio" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="CI" Type="int" Nullable="false" />
+    <Property Name="idColegio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonalMinisterio">
+    <Key>
+      <PropertyRef Name="nroRegistroMins" />
+    </Key>
+    <Property Name="nroRegistroMins" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="loginMinistro" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="passMinistro" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="firmaDigital" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="CI" Type="int" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Privilegios">
+    <Key>
+      <PropertyRef Name="idPrivilegios" />
+    </Key>
+    <Property Name="idPrivilegios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="idRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Colegio__nroRegi__1B0907CE">
+    <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="1" />
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalMinisterio">
+        <PropertyRef Name="nroRegistroMins" />
+      </Principal>
+      <Dependent Role="Colegio">
+        <PropertyRef Name="nroRegistroMins" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Diploma__idGrupo__34C8D9D1">
+    <End Role="GrupoDiploma" Type="Self.GrupoDiploma" Multiplicity="1" />
+    <End Role="Diploma" Type="Self.Diploma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoDiploma">
+        <PropertyRef Name="idGrupoDiploma" />
+      </Principal>
+      <Dependent Role="Diploma">
+        <PropertyRef Name="idGrupoDiploma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Diploma__idLegal__33D4B598">
+    <End Role="Legalizacion" Type="Self.Legalizacion" Multiplicity="0..1" />
+    <End Role="Diploma" Type="Self.Diploma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Legalizacion">
+        <PropertyRef Name="idLegalizacion" />
+      </Principal>
+      <Dependent Role="Diploma">
+        <PropertyRef Name="idLegalizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estudiant__idDip__398D8EEE">
+    <End Role="Diploma" Type="Self.Diploma" Multiplicity="0..1" />
+    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diploma">
+        <PropertyRef Name="idDiploma" />
+      </Principal>
+      <Dependent Role="Estudiante">
+        <PropertyRef Name="idDiploma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estudiant__idLis__3A81B327">
+    <End Role="ListadeEstudiantes" Type="Self.ListadeEstudiantes" Multiplicity="1" />
+    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ListadeEstudiantes">
+        <PropertyRef Name="idListaEstudiante" />
+      </Principal>
+      <Dependent Role="Estudiante">
+        <PropertyRef Name="idListaEstudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estudiant__idRol__3B75D760">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="Estudiante">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estudiante__CI__38996AB5">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="CI" />
+      </Principal>
+      <Dependent Role="Estudiante">
+        <PropertyRef Name="CI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Gestion__idColeg__25869641">
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="1" />
+    <End Role="Gestion" Type="Self.Gestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="idColegio" />
+      </Principal>
+      <Dependent Role="Gestion">
+        <PropertyRef Name="idColegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GrupoDipl__nroRe__286302EC">
+    <End Role="PersonalColegio" Type="Self.PersonalColegio" Multiplicity="1" />
+    <End Role="GrupoDiploma" Type="Self.GrupoDiploma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalColegio">
+        <PropertyRef Name="nroRegistroPColegio" />
+      </Principal>
+      <Dependent Role="GrupoDiploma">
+        <PropertyRef Name="nroRegistroPColegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Legalizac__nroRe__300424B4">
+    <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="1" />
+    <End Role="Legalizacion" Type="Self.Legalizacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalMinisterio">
+        <PropertyRef Name="nroRegistroMins" />
+      </Principal>
+      <Dependent Role="Legalizacion">
+        <PropertyRef Name="nroRegistroMins" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListadeEs__idGes__2D27B809">
+    <End Role="Gestion" Type="Self.Gestion" Multiplicity="1" />
+    <End Role="ListadeEstudiantes" Type="Self.ListadeEstudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gestion">
+        <PropertyRef Name="idGestion" />
+      </Principal>
+      <Dependent Role="ListadeEstudiantes">
+        <PropertyRef Name="idGestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListadeEs__idGru__2C3393D0">
+    <End Role="GrupoDiploma" Type="Self.GrupoDiploma" Multiplicity="1" />
+    <End Role="ListadeEstudiantes" Type="Self.ListadeEstudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoDiploma">
+        <PropertyRef Name="idGrupoDiploma" />
+      </Principal>
+      <Dependent Role="ListadeEstudiantes">
+        <PropertyRef Name="idGrupoDiploma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PColegio___idRol__3D5E1FD2">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="PColegio_Rol" Type="Self.PColegio_Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="PColegio_Rol">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PColegio___nroRe__3E52440B">
+    <End Role="PersonalColegio" Type="Self.PersonalColegio" Multiplicity="1" />
+    <End Role="PColegio_Rol" Type="Self.PColegio_Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalColegio">
+        <PropertyRef Name="nroRegistroPColegio" />
+      </Principal>
+      <Dependent Role="PColegio_Rol">
+        <PropertyRef Name="nroRegistroPColegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonalC__idCol__1FCDBCEB">
+    <End Role="Colegio" Type="Self.Colegio" Multiplicity="1" />
+    <End Role="PersonalColegio" Type="Self.PersonalColegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colegio">
+        <PropertyRef Name="idColegio" />
+      </Principal>
+      <Dependent Role="PersonalColegio">
+        <PropertyRef Name="idColegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonalCole__CI__1ED998B2">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="PersonalColegio" Type="Self.PersonalColegio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="CI" />
+      </Principal>
+      <Dependent Role="PersonalColegio">
+        <PropertyRef Name="CI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonalM__idRol__173876EA">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="PersonalMinisterio">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PersonalMini__CI__164452B1">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="CI" />
+      </Principal>
+      <Dependent Role="PersonalMinisterio">
+        <PropertyRef Name="CI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Privilegi__idRol__22AA2996">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Privilegios" Type="Self.Privilegios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="Privilegios">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProIntBDModelStoreContainer">
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Colegio" EntityType="Self.Colegio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diploma" EntityType="Self.Diploma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gestion" EntityType="Self.Gestion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GrupoDiploma" EntityType="Self.GrupoDiploma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Legalizacion" EntityType="Self.Legalizacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ListadeEstudiantes" EntityType="Self.ListadeEstudiantes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonalColegio" EntityType="Self.PersonalColegio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonalMinisterio" EntityType="Self.PersonalMinisterio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Privilegios" EntityType="Self.Privilegios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PColegio_Rol" EntityType="Self.PColegio_Rol" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PColegio_Rol].[idRol] AS [idRol], 
+    [PColegio_Rol].[nroRegistroPColegio] AS [nroRegistroPColegio]
+    FROM [dbo].[PColegio_Rol] AS [PColegio_Rol]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Colegio__nroRegi__1B0907CE" Association="Self.FK__Colegio__nroRegi__1B0907CE">
+      <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />
+      <End Role="Colegio" EntitySet="Colegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Diploma__idGrupo__34C8D9D1" Association="Self.FK__Diploma__idGrupo__34C8D9D1">
+      <End Role="GrupoDiploma" EntitySet="GrupoDiploma" />
+      <End Role="Diploma" EntitySet="Diploma" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Diploma__idLegal__33D4B598" Association="Self.FK__Diploma__idLegal__33D4B598">
+      <End Role="Legalizacion" EntitySet="Legalizacion" />
+      <End Role="Diploma" EntitySet="Diploma" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estudiant__idDip__398D8EEE" Association="Self.FK__Estudiant__idDip__398D8EEE">
+      <End Role="Diploma" EntitySet="Diploma" />
+      <End Role="Estudiante" EntitySet="Estudiante" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estudiant__idLis__3A81B327" Association="Self.FK__Estudiant__idLis__3A81B327">
+      <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
+      <End Role="Estudiante" EntitySet="Estudiante" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estudiant__idRol__3B75D760" Association="Self.FK__Estudiant__idRol__3B75D760">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Estudiante" EntitySet="Estudiante" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estudiante__CI__38996AB5" Association="Self.FK__Estudiante__CI__38996AB5">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Estudiante" EntitySet="Estudiante" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Gestion__idColeg__25869641" Association="Self.FK__Gestion__idColeg__25869641">
+      <End Role="Colegio" EntitySet="Colegio" />
+      <End Role="Gestion" EntitySet="Gestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GrupoDipl__nroRe__286302EC" Association="Self.FK__GrupoDipl__nroRe__286302EC">
+      <End Role="PersonalColegio" EntitySet="PersonalColegio" />
+      <End Role="GrupoDiploma" EntitySet="GrupoDiploma" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Legalizac__nroRe__300424B4" Association="Self.FK__Legalizac__nroRe__300424B4">
+      <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />
+      <End Role="Legalizacion" EntitySet="Legalizacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListadeEs__idGes__2D27B809" Association="Self.FK__ListadeEs__idGes__2D27B809">
+      <End Role="Gestion" EntitySet="Gestion" />
+      <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListadeEs__idGru__2C3393D0" Association="Self.FK__ListadeEs__idGru__2C3393D0">
+      <End Role="GrupoDiploma" EntitySet="GrupoDiploma" />
+      <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PColegio___idRol__3D5E1FD2" Association="Self.FK__PColegio___idRol__3D5E1FD2">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="PColegio_Rol" EntitySet="PColegio_Rol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PColegio___nroRe__3E52440B" Association="Self.FK__PColegio___nroRe__3E52440B">
+      <End Role="PersonalColegio" EntitySet="PersonalColegio" />
+      <End Role="PColegio_Rol" EntitySet="PColegio_Rol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonalC__idCol__1FCDBCEB" Association="Self.FK__PersonalC__idCol__1FCDBCEB">
+      <End Role="Colegio" EntitySet="Colegio" />
+      <End Role="PersonalColegio" EntitySet="PersonalColegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonalCole__CI__1ED998B2" Association="Self.FK__PersonalCole__CI__1ED998B2">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="PersonalColegio" EntitySet="PersonalColegio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonalM__idRol__173876EA" Association="Self.FK__PersonalM__idRol__173876EA">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PersonalMini__CI__164452B1" Association="Self.FK__PersonalMini__CI__164452B1">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Privilegi__idRol__22AA2996" Association="Self.FK__Privilegi__idRol__22AA2996">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Privilegios" EntitySet="Privilegios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

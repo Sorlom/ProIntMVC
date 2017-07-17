@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc22983c73bb4876bc70bf587e1c1141" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="ProIntBDModel.Bitacora" Width="1.5" PointX="1.375" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Colegio" Width="1.5" PointX="6.125" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Diploma" Width="1.5" PointX="7" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Estudiante" Width="1.5" PointX="3.875" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Gestion" Width="1.5" PointX="8.375" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.GrupoDiploma" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Legalizacion" Width="1.5" PointX="8.125" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.ListadeEstudiantes" Width="1.5" PointX="10" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Persona" Width="1.5" PointX="1.125" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.PersonalColegio" Width="1.5" PointX="3.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.PersonalMinisterio" Width="1.5" PointX="3.625" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Privilegios" Width="1.5" PointX="0.625" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Rol" Width="1.5" PointX="0.625" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="ProIntBDModel.FK__Colegio__nroRegi__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Gestion__idColeg__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__PersonalC__idCol__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Diploma__idGrupo__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Diploma__idLegal__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Estudiant__idDip__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Estudiant__idLis__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Estudiant__idRol__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Estudiante__CI__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__ListadeEs__idGes__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__GrupoDipl__nroRe__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__ListadeEs__idGru__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Legalizac__nroRe__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__PersonalCole__CI__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__PersonalMini__CI__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__PersonalM__idRol__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Privilegi__idRol__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.PColegio_Rol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
