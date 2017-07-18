@@ -469,5 +469,16 @@
       <End Role="Rol" EntitySet="Rol" />
       <End Role="PersonalColegio" EntitySet="PersonalColegio" />
     </AssociationSet>
+    <EntitySet Name="Vista_PC_Rol" EntityType="ProIntBDModel.Vista_PC_Rol" />
   </EntityContainer>
+  <EntityType Name="Vista_PC_Rol">
+    <Key>
+      <PropertyRef Name="loginPColegio" />
+      <PropertyRef Name="passPColegio" />
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="loginPColegio" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="passPColegio" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idRol" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using MinisteriodeEducacionMVCApp.Models;
 
 namespace MinisteriodeEducacionMVCApp
 {
@@ -48,7 +49,39 @@ namespace MinisteriodeEducacionMVCApp
 
         public override string[] GetRolesForUser(string username)
         {
-            throw new NotImplementedException();
+                ProIntBDEntities db = new ProIntBDEntities();
+
+                var countE = db.Estudiante.Where(x => x.loginEstudiante == username).Count();
+                var countPM = db.PersonalMinisterio.Where(x => x.loginMinistro == username).Count();              
+                var countPC = db.Vista_PC_Rol.Where(x => x.loginPColegio == username).Count();
+           
+             if (countE != 0)
+            {
+                string idE = "R"+db.Estudiante.Where(x => x.loginEstudiante == username).FirstOrDefault().idRol;
+                string[] resultS = { idE };
+                return resultS;
+            }
+            else
+            {
+                if (countPM != 0)
+                {
+                    string idPM = "R" + db.PersonalMinisterio.Where(x => x.loginMinistro == username).FirstOrDefault().idRol;
+                    string[] resultS = { idPM };
+                    return resultS;
+                }
+                else
+                {
+                    if (countPC != 0)
+                    {
+                        string ridPC = "R" + db.Vista_PC_Rol.Where(x => x.loginPColegio == username).FirstOrDefault().idRol;
+                        string[] resultS = { ridPC };
+                        return resultS;
+                    }
+                }
+            }
+            string mal = "R0"; 
+            string[] resultM = { mal };
+            return resultM;
         }
 
         public override string[] GetUsersInRole(string roleName)

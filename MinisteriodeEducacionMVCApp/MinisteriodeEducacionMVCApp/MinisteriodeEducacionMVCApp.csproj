@@ -194,6 +194,9 @@
     <Compile Include="Models\Rol.cs">
       <DependentUpon>BDMVCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Vista_PC_Rol.cs">
+      <DependentUpon>BDMVCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MyRoleProviders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

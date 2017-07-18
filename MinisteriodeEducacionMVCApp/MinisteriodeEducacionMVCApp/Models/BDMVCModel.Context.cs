@@ -38,5 +38,6 @@ namespace MinisteriodeEducacionMVCApp.Models
         public virtual DbSet<PersonalMinisterio> PersonalMinisterio { get; set; }
         public virtual DbSet<Privilegios> Privilegios { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
+        public virtual DbSet<Vista_PC_Rol> Vista_PC_Rol { get; set; }
     }
 }

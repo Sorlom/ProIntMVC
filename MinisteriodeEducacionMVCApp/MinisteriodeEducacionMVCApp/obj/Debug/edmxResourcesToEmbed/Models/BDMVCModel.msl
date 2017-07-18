@@ -161,5 +161,14 @@
         <ScalarProperty Name="nroRegistroPColegio" ColumnName="nroRegistroPColegio" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Vista_PC_Rol">
+      <EntityTypeMapping TypeName="ProIntBDModel.Vista_PC_Rol">
+        <MappingFragment StoreEntitySet="Vista_PC_Rol">
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="passPColegio" ColumnName="passPColegio" />
+          <ScalarProperty Name="loginPColegio" ColumnName="loginPColegio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -20,18 +20,24 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Index(PersonalColegio user)
+        public ActionResult Index(FormCollection fc)
         {
-            var count = db.PersonalColegio.Where(x => x.loginPColegio == user.loginPColegio && x.passPColegio == user.passPColegio).Count();
-            if (count == 0)
+            string acc = fc["Nom"].ToString();
+            string pass = fc["Pass"].ToString();
+
+            var countPC = db.PersonalColegio.Where(x => x.loginPColegio == acc && x.passPColegio == pass).Count();
+            var countPM = db.PersonalMinisterio.Where(x => x.loginMinistro == acc && x.passMinistro == pass).Count();
+            var countPE = db.Estudiante.Where(x => x.loginEstudiante == acc && x.passEstudiante == pass).Count();
+
+            if (countPC == 1 || countPE == 1 || countPM == 1)
             {
-                ViewBag.Msg = "Usuario Invalido";
-                return View();
+                FormsAuthentication.SetAuthCookie(acc, false);
+                return RedirectToAction("Index", "Home");
             }
             else
             {
-                FormsAuthentication.SetAuthCookie(user.loginPColegio, false);
-                return RedirectToAction("Index", "Home");
+                ViewBag.Msg = "Usuario Invalido";
+                return View();
             }
         }
         public ActionResult Logout()

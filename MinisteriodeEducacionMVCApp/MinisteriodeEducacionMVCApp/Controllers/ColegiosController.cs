@@ -10,7 +10,7 @@ using MinisteriodeEducacionMVCApp.Models;
 
 namespace MinisteriodeEducacionMVCApp.Controllers
 {
-    [Authorize(Roles = "Ministro,Administrador")]
+    [Authorize(Roles = "R1,R4")]
     public class ColegiosController : Controller
     {
         private ProIntBDEntities db = new ProIntBDEntities();

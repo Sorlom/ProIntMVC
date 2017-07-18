@@ -143,8 +143,8 @@ insert into Rol values ('PColegio','Tienen control de ABM sobre los grupos de Di
 insert into Rol values ('Estudiante','Solo tiene la posibilidad de Visualizar su propio diploma y descargarlo')
 insert into Rol values ('Ministro','Tiene acceso a creacion de Colegios y la legalizacion de diplomas')
 
-insert into PersonalMinisterio values ('Admin','Admin','josesolano@outlook.com','JSR',8177406,1)
-
+insert into PersonalMinisterio values ('Mins1','Mins1','josesolano@outlook.com','JSR',8177406,4)
+insert into PersonalMinisterio values ('Admin','Admin','Admin@outlook.com','ADM',7777777,1)
 
 insert into Colegio values ('DonBosco','Av Argentina','dbcentral@dbosco.com',1)
 insert into Colegio values ('Uboldi','Av Las Americas','uboldicentral@uboldi.com',1)
@@ -216,4 +216,15 @@ insert into Estudiante values ('Esuarez','Est03','Esuarez@salle.com',4444444,nul
 insert into PColegio_Rol values (1,2)
 insert into PColegio_Rol values (2,2)
 insert into PColegio_Rol values (3,2)
------------------------------------------------------------------------------------------------------------
+-----------------------------------------VIEWS----------------------------------
+Create View Vista_PC_Rol
+as
+select loginPColegio, passPColegio, idRol 
+from PersonalColegio pc inner join PColegio_Rol pcr on pcr.nroRegistroPColegio = pc.nroRegistroPColegio
+
+
+select loginPColegio, passPColegio, idRol 
+from PersonalColegio pc inner join PColegio_Rol pcr on pcr.nroRegistroPColegio = pc.nroRegistroPColegio
+where pc.loginPColegio = 'salle'
+
+select * from Estudiante

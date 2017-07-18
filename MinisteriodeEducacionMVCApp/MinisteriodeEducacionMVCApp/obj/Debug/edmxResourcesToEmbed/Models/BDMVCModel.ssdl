@@ -149,6 +149,18 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.PColegio_Rol' no tiene definida
     <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="300" Nullable="false" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Vista_PC_Rol">
+    <Key>
+      <PropertyRef Name="loginPColegio" />
+      <PropertyRef Name="passPColegio" />
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="loginPColegio" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="passPColegio" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="FK__Colegio__nroRegi__1B0907CE">
     <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="1" />
     <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
@@ -396,6 +408,13 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.PColegio_Rol' no tiene definida
     [PColegio_Rol].[idRol] AS [idRol], 
     [PColegio_Rol].[nroRegistroPColegio] AS [nroRegistroPColegio]
     FROM [dbo].[PColegio_Rol] AS [PColegio_Rol]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Vista_PC_Rol" EntityType="Self.Vista_PC_Rol" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Vista_PC_Rol].[loginPColegio] AS [loginPColegio], 
+    [Vista_PC_Rol].[passPColegio] AS [passPColegio], 
+    [Vista_PC_Rol].[idRol] AS [idRol]
+    FROM [dbo].[Vista_PC_Rol] AS [Vista_PC_Rol]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__Colegio__nroRegi__1B0907CE" Association="Self.FK__Colegio__nroRegi__1B0907CE">
       <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />

@@ -10,6 +10,7 @@ using MinisteriodeEducacionMVCApp.Models;
 
 namespace MinisteriodeEducacionMVCApp.Controllers
 {
+    [Authorize(Roles = "R1,R4")]
     public class LegalizacionsController : Controller
     {
         private ProIntBDEntities db = new ProIntBDEntities();

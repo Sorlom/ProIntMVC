@@ -23,13 +23,20 @@
                 <ul class="nav navbar-nav">
                     @if (User.Identity.IsAuthenticated)
                     {
-                    <li>@Html.ActionLink("Colegios", "Index", "Colegios")</li>
-                    <li>@Html.ActionLink("Legalizacion", "Index", "Legalizacions")</li>
-                    <li>@Html.ActionLink("Lista Estudiantes", "Index", "ListadeEstudiantes")</li>
-                    <li>@Html.ActionLink("Grupo Diplomas", "Index", "GrupoDiplomas")</li>
-                    <li>@Html.ActionLink("Diplomas", "Index", "Diplomata")</li>
-                    <li><a href="#">Bienvenido Usuario: @User.Identity.Name</a></li>
-                    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                        if (User.IsInRole("R1") || User.IsInRole("R4"))
+                        {
+                        <li>@Html.ActionLink("Colegios", "Index", "Colegios")</li>
+                        <li>@Html.ActionLink("Legalizacion", "Index", "Legalizacions")</li>
+                        }
+                        if (User.IsInRole("R1") || User.IsInRole("R2"))
+                        {
+                            <li>@Html.ActionLink("Lista Estudiantes", "Index", "ListadeEstudiantes")</li>
+                            <li>@Html.ActionLink("Grupo Diplomas", "Index", "GrupoDiplomas")</li>
+                            <li>@Html.ActionLink("Diplomas", "Index", "Diplomata")</li>
+                        }
+                            <li><a href="#">Bienvenido Usuario: @User.Identity.Name</a></li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                        
                     }
                     else
                     {
