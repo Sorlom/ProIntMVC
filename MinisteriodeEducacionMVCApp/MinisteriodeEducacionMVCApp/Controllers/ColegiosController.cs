@@ -10,14 +10,17 @@ using MinisteriodeEducacionMVCApp.Models;
 
 namespace MinisteriodeEducacionMVCApp.Controllers
 {
+    [Authorize(Roles = "Ministro,Administrador")]
     public class ColegiosController : Controller
     {
         private ProIntBDEntities db = new ProIntBDEntities();
 
         // GET: Colegios
+        
         public ActionResult Index()
         {
-            var colegio = db.Colegio.Include(c => c.PersonalMinisterio);
+            var colegio = db.Colegio.Include(c => c.PersonalColegio);
+
             return View(colegio.ToList());
         }
 

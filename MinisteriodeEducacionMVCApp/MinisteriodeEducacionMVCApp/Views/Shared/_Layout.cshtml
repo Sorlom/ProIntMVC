@@ -21,11 +21,20 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
                     <li>@Html.ActionLink("Colegios", "Index", "Colegios")</li>
                     <li>@Html.ActionLink("Legalizacion", "Index", "Legalizacions")</li>
                     <li>@Html.ActionLink("Lista Estudiantes", "Index", "ListadeEstudiantes")</li>
                     <li>@Html.ActionLink("Grupo Diplomas", "Index", "GrupoDiplomas")</li>
-                    <li>@Html.ActionLink("Diplomas", "Index", "Diplomata")</li>                   
+                    <li>@Html.ActionLink("Diplomas", "Index", "Diplomata")</li>
+                    <li><a href="#">Bienvenido Usuario: @User.Identity.Name</a></li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                    }
+                    else
+                    {
+                    <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                    }
                 </ul>
             </div>
         </div>
@@ -34,7 +43,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; Realizado en: @DateTime.Now.Year</p>
         </footer>
     </div>
 

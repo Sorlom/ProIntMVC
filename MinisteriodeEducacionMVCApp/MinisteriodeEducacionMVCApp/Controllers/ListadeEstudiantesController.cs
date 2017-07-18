@@ -18,7 +18,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         public ActionResult Index()
         {
             var listadeEstudiantes = db.ListadeEstudiantes.Include(l => l.Gestion).Include(l => l.GrupoDiploma);
-            return View(listadeEstudiantes.ToList());
+            return View(listadeEstudiantes.Take(10).ToList());
         }
 
         // GET: ListadeEstudiantes/Details/5

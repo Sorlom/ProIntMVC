@@ -136,6 +136,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LegalizacionsController.cs" />
     <Compile Include="Controllers\ListadeEstudiantesController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,6 +194,7 @@
     <Compile Include="Models\Rol.cs">
       <DependentUpon>BDMVCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyRoleProviders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -272,6 +274,7 @@
     <Content Include="Views\Colegios\Details.cshtml" />
     <Content Include="Views\Colegios\Edit.cshtml" />
     <Content Include="Views\Colegios\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
