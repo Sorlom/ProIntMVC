@@ -176,9 +176,9 @@ insert into Privilegios values ('Visualizar Diplomas','Puede Visualizar el diplo
 
 insert into Privilegios values ('Añadir Legalizacion','Legalizacion de una tanda de diplomas',4)
 
-insert into PColegio_Rol values (1,2)
+insert into PColegio_Rol values (2,1)
 insert into PColegio_Rol values (2,2)
-insert into PColegio_Rol values (3,2)
+insert into PColegio_Rol values (2,3)
 
 insert into Gestion values ('Grobs','2012',1)
 insert into Gestion values ('Zeidach','2016',2)
@@ -276,7 +276,6 @@ set @ID = (select idLegalizacion from inserted)
 set @IDD = (select idDiploma from inserted)
 
 set @FecLeg = GETDATE()
-
 set @CODMINS = (select firmaDigital from PersonalMinisterio where nroRegistroMins = @IDM)
 set @CODMINSMD5 = CONVERT(VARCHAR(32), HashBytes('MD5', @CODMINS), 2)
 
@@ -289,7 +288,7 @@ update Diploma set codigoLegalizacion = @CODLEGMD5 where idDiploma = @IDD
 update Legalizacion set firmaDigital = @CODLEGMD5, fechaL = @FecLeg where idLegalizacion = @ID
 end
 --------------------------------------------------------------------------------------
-
+drop trigger tg_Legal
 
 -------------------------------------PROCEDIMIENTOS ALMACENADOS------------------------------------------------
 Create Procedure sp_ImportCSV
@@ -382,6 +381,10 @@ end
 execute sp_CrearDiplomas
 ----------------------------------------------------------------------------------------------------------------------
 
-select * from Vista_ListaE
-select * from Diploma
-select * from Legalizacion
+update  PersonalColegio set passPColegio = 'baf8a7ba583324dc0a81070d3349a3d3' where nroRegistroPColegio = 1
+update  PersonalColegio set passPColegio = '98302c0570ad746539c1eb637041c474' where nroRegistroPColegio = 2
+update  PersonalColegio set passPColegio = 'aeabd5b1570d06a00c19d0d7e38d6f4a' where nroRegistroPColegio = 3
+
+update  PersonalMinisterio  set passMinistro = '1c51a52b9d45a32b5779f7a020950093' where nroRegistroMins = 1
+update  PersonalMinisterio  set passMinistro = 'e3afed0047b08059d0fada10f400c1e5' where nroRegistroMins = 2
+
