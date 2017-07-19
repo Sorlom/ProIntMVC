@@ -32,12 +32,12 @@
     <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="metadatos" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="codigohex" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="idLegalizacion" Type="Int32" />
     <Property Name="codigoLegalizacion" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="idListaEstudiante" Type="Int32" Nullable="false" />
     <Property Name="idGrupoDiploma" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="GrupoDiploma" Relationship="Self.FK__Diploma__idGrupo__34C8D9D1" FromRole="Diploma" ToRole="GrupoDiploma" />
-    <NavigationProperty Name="Legalizacion" Relationship="Self.FK__Diploma__idLegal__33D4B598" FromRole="Diploma" ToRole="Legalizacion" />
-    <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiant__idDip__398D8EEE" FromRole="Diploma" ToRole="Estudiante" />
+    <NavigationProperty Name="GrupoDiploma" Relationship="Self.FK__Diploma__idGrupo__2C3393D0" FromRole="Diploma" ToRole="GrupoDiploma" />
+    <NavigationProperty Name="Legalizacion" Relationship="Self.FK__Legalizac__idDip__35BCFE0A" FromRole="Diploma" ToRole="Legalizacion" />
+    <NavigationProperty Name="ListadeEstudiantes" Relationship="Self.FK__ListadeEs__idDip__31EC6D26" FromRole="Diploma" ToRole="ListadeEstudiantes" />
   </EntityType>
   <EntityType Name="Estudiante">
     <Key>
@@ -48,13 +48,11 @@
     <Property Name="passEstudiante" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="correo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CI" Type="Int32" Nullable="false" />
-    <Property Name="idDiploma" Type="Int32" />
     <Property Name="idListaEstudiante" Type="Int32" Nullable="false" />
     <Property Name="idRol" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Diploma" Relationship="Self.FK__Estudiant__idDip__398D8EEE" FromRole="Estudiante" ToRole="Diploma" />
     <NavigationProperty Name="ListadeEstudiantes" Relationship="Self.FK__Estudiant__idLis__3A81B327" FromRole="Estudiante" ToRole="ListadeEstudiantes" />
     <NavigationProperty Name="Rol" Relationship="Self.FK__Estudiant__idRol__3B75D760" FromRole="Estudiante" ToRole="Rol" />
-    <NavigationProperty Name="Persona" Relationship="Self.FK__Estudiante__CI__38996AB5" FromRole="Estudiante" ToRole="Persona" />
+    <NavigationProperty Name="Persona" Relationship="Self.FK__Estudiante__CI__398D8EEE" FromRole="Estudiante" ToRole="Persona" />
   </EntityType>
   <EntityType Name="Gestion">
     <Key>
@@ -65,7 +63,7 @@
     <Property Name="año" Type="Int32" Nullable="false" />
     <Property Name="idColegio" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Colegio" Relationship="Self.FK__Gestion__idColeg__25869641" FromRole="Gestion" ToRole="Colegio" />
-    <NavigationProperty Name="ListadeEstudiantes" Relationship="Self.FK__ListadeEs__idGes__2D27B809" FromRole="Gestion" ToRole="ListadeEstudiantes" />
+    <NavigationProperty Name="ListadeEstudiantes" Relationship="Self.FK__ListadeEs__idGes__30F848ED" FromRole="Gestion" ToRole="ListadeEstudiantes" />
   </EntityType>
   <EntityType Name="GrupoDiploma">
     <Key>
@@ -74,22 +72,21 @@
     <Property Name="idGrupoDiploma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="nroRegistroPColegio" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Diploma" Relationship="Self.FK__Diploma__idGrupo__34C8D9D1" FromRole="GrupoDiploma" ToRole="Diploma" />
+    <NavigationProperty Name="Diploma" Relationship="Self.FK__Diploma__idGrupo__2C3393D0" FromRole="GrupoDiploma" ToRole="Diploma" />
     <NavigationProperty Name="PersonalColegio" Relationship="Self.FK__GrupoDipl__nroRe__286302EC" FromRole="GrupoDiploma" ToRole="PersonalColegio" />
-    <NavigationProperty Name="ListadeEstudiantes" Relationship="Self.FK__ListadeEs__idGru__2C3393D0" FromRole="GrupoDiploma" ToRole="ListadeEstudiantes" />
+    <NavigationProperty Name="ListadeEstudiantes" Relationship="Self.FK__ListadeEs__idGru__300424B4" FromRole="GrupoDiploma" ToRole="ListadeEstudiantes" />
   </EntityType>
   <EntityType Name="Legalizacion">
     <Key>
       <PropertyRef Name="idLegalizacion" />
     </Key>
     <Property Name="idLegalizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="firmaDigital" Type="String" MaxLength="800" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="fechaL" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="firmaDigital" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="fechaL" Type="DateTime" Precision="0" />
     <Property Name="nroRegistroMins" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Diploma" Relationship="Self.FK__Diploma__idLegal__33D4B598" FromRole="Legalizacion" ToRole="Diploma" />
-    <NavigationProperty Name="PersonalMinisterio" Relationship="Self.FK__Legalizac__nroRe__300424B4" FromRole="Legalizacion" ToRole="PersonalMinisterio" />
+    <Property Name="idDiploma" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Diploma" Relationship="Self.FK__Legalizac__idDip__35BCFE0A" FromRole="Legalizacion" ToRole="Diploma" />
+    <NavigationProperty Name="PersonalMinisterio" Relationship="Self.FK__Legalizac__nroRe__34C8D9D1" FromRole="Legalizacion" ToRole="PersonalMinisterio" />
   </EntityType>
   <EntityType Name="ListadeEstudiantes">
     <Key>
@@ -100,13 +97,15 @@
     <Property Name="apellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="apellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="correo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="pararelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="paralelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="promedio" Type="Double" Nullable="false" />
     <Property Name="idGrupoDiploma" Type="Int32" Nullable="false" />
     <Property Name="idGestion" Type="Int32" Nullable="false" />
+    <Property Name="idDiploma" Type="Int32" />
+    <NavigationProperty Name="Diploma" Relationship="Self.FK__ListadeEs__idDip__31EC6D26" FromRole="ListadeEstudiantes" ToRole="Diploma" />
     <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiant__idLis__3A81B327" FromRole="ListadeEstudiantes" ToRole="Estudiante" />
-    <NavigationProperty Name="Gestion" Relationship="Self.FK__ListadeEs__idGes__2D27B809" FromRole="ListadeEstudiantes" ToRole="Gestion" />
-    <NavigationProperty Name="GrupoDiploma" Relationship="Self.FK__ListadeEs__idGru__2C3393D0" FromRole="ListadeEstudiantes" ToRole="GrupoDiploma" />
+    <NavigationProperty Name="Gestion" Relationship="Self.FK__ListadeEs__idGes__30F848ED" FromRole="ListadeEstudiantes" ToRole="Gestion" />
+    <NavigationProperty Name="GrupoDiploma" Relationship="Self.FK__ListadeEs__idGru__300424B4" FromRole="ListadeEstudiantes" ToRole="GrupoDiploma" />
   </EntityType>
   <EntityType Name="Persona">
     <Key>
@@ -118,7 +117,7 @@
     <Property Name="apellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="telefono" Type="Int32" Nullable="false" />
     <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiante__CI__38996AB5" FromRole="Persona" ToRole="Estudiante" />
+    <NavigationProperty Name="Estudiante" Relationship="Self.FK__Estudiante__CI__398D8EEE" FromRole="Persona" ToRole="Estudiante" />
     <NavigationProperty Name="PersonalColegio" Relationship="Self.FK__PersonalCole__CI__1ED998B2" FromRole="Persona" ToRole="PersonalColegio" />
     <NavigationProperty Name="PersonalMinisterio" Relationship="Self.FK__PersonalMini__CI__164452B1" FromRole="Persona" ToRole="PersonalMinisterio" />
   </EntityType>
@@ -149,7 +148,7 @@
     <Property Name="CI" Type="Int32" Nullable="false" />
     <Property Name="idRol" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Colegio" Relationship="Self.FK__Colegio__nroRegi__1B0907CE" FromRole="PersonalMinisterio" ToRole="Colegio" />
-    <NavigationProperty Name="Legalizacion" Relationship="Self.FK__Legalizac__nroRe__300424B4" FromRole="PersonalMinisterio" ToRole="Legalizacion" />
+    <NavigationProperty Name="Legalizacion" Relationship="Self.FK__Legalizac__nroRe__34C8D9D1" FromRole="PersonalMinisterio" ToRole="Legalizacion" />
     <NavigationProperty Name="Persona" Relationship="Self.FK__PersonalMini__CI__164452B1" FromRole="PersonalMinisterio" ToRole="Persona" />
     <NavigationProperty Name="Rol" Relationship="Self.FK__PersonalM__idRol__173876EA" FromRole="PersonalMinisterio" ToRole="Rol" />
   </EntityType>
@@ -174,6 +173,39 @@
     <NavigationProperty Name="PersonalMinisterio" Relationship="Self.FK__PersonalM__idRol__173876EA" FromRole="Rol" ToRole="PersonalMinisterio" />
     <NavigationProperty Name="Privilegios" Relationship="Self.FK__Privilegi__idRol__22AA2996" FromRole="Rol" ToRole="Privilegios" />
     <NavigationProperty Name="PersonalColegio" Relationship="Self.PColegio_Rol" FromRole="Rol" ToRole="PersonalColegio" />
+  </EntityType>
+  <EntityType Name="Vista_ListaE">
+    <Key>
+      <PropertyRef Name="idListaEstudiante" />
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="apellidoPaterno" />
+      <PropertyRef Name="apellidoMaterno" />
+      <PropertyRef Name="correo" />
+      <PropertyRef Name="paralelo" />
+      <PropertyRef Name="promedio" />
+      <PropertyRef Name="idGrupoDiploma" />
+      <PropertyRef Name="idGestion" />
+    </Key>
+    <Property Name="idListaEstudiante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="paralelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="promedio" Type="Double" Nullable="false" />
+    <Property Name="idGrupoDiploma" Type="Int32" Nullable="false" />
+    <Property Name="idGestion" Type="Int32" Nullable="false" />
+    <Property Name="idDiploma" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Vista_PC_Rol">
+    <Key>
+      <PropertyRef Name="loginPColegio" />
+      <PropertyRef Name="passPColegio" />
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="loginPColegio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="passPColegio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idRol" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK__Colegio__nroRegi__1B0907CE">
     <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="1" />
@@ -211,7 +243,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Diploma__idGrupo__34C8D9D1">
+  <Association Name="FK__Diploma__idGrupo__2C3393D0">
     <End Role="GrupoDiploma" Type="Self.GrupoDiploma" Multiplicity="1" />
     <End Role="Diploma" Type="Self.Diploma" Multiplicity="*" />
     <ReferentialConstraint>
@@ -223,26 +255,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Diploma__idLegal__33D4B598">
-    <End Role="Legalizacion" Type="Self.Legalizacion" Multiplicity="0..1" />
-    <End Role="Diploma" Type="Self.Diploma" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Legalizacion">
-        <PropertyRef Name="idLegalizacion" />
-      </Principal>
-      <Dependent Role="Diploma">
-        <PropertyRef Name="idLegalizacion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Estudiant__idDip__398D8EEE">
-    <End Role="Diploma" Type="Self.Diploma" Multiplicity="0..1" />
-    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+  <Association Name="FK__Legalizac__idDip__35BCFE0A">
+    <End Role="Diploma" Type="Self.Diploma" Multiplicity="1" />
+    <End Role="Legalizacion" Type="Self.Legalizacion" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Diploma">
         <PropertyRef Name="idDiploma" />
       </Principal>
-      <Dependent Role="Estudiante">
+      <Dependent Role="Legalizacion">
+        <PropertyRef Name="idDiploma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListadeEs__idDip__31EC6D26">
+    <End Role="Diploma" Type="Self.Diploma" Multiplicity="0..1" />
+    <End Role="ListadeEstudiantes" Type="Self.ListadeEstudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diploma">
+        <PropertyRef Name="idDiploma" />
+      </Principal>
+      <Dependent Role="ListadeEstudiantes">
         <PropertyRef Name="idDiploma" />
       </Dependent>
     </ReferentialConstraint>
@@ -271,7 +303,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Estudiante__CI__38996AB5">
+  <Association Name="FK__Estudiante__CI__398D8EEE">
     <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
     <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
     <ReferentialConstraint>
@@ -283,7 +315,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ListadeEs__idGes__2D27B809">
+  <Association Name="FK__ListadeEs__idGes__30F848ED">
     <End Role="Gestion" Type="Self.Gestion" Multiplicity="1" />
     <End Role="ListadeEstudiantes" Type="Self.ListadeEstudiantes" Multiplicity="*" />
     <ReferentialConstraint>
@@ -307,7 +339,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ListadeEs__idGru__2C3393D0">
+  <Association Name="FK__ListadeEs__idGru__300424B4">
     <End Role="GrupoDiploma" Type="Self.GrupoDiploma" Multiplicity="1" />
     <End Role="ListadeEstudiantes" Type="Self.ListadeEstudiantes" Multiplicity="*" />
     <ReferentialConstraint>
@@ -319,7 +351,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Legalizac__nroRe__300424B4">
+  <Association Name="FK__Legalizac__nroRe__34C8D9D1">
     <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="1" />
     <End Role="Legalizacion" Type="Self.Legalizacion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -397,6 +429,8 @@
     <EntitySet Name="PersonalMinisterio" EntityType="Self.PersonalMinisterio" />
     <EntitySet Name="Privilegios" EntityType="Self.Privilegios" />
     <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="Vista_ListaE" EntityType="Self.Vista_ListaE" />
+    <EntitySet Name="Vista_PC_Rol" EntityType="Self.Vista_PC_Rol" />
     <AssociationSet Name="FK__Colegio__nroRegi__1B0907CE" Association="Self.FK__Colegio__nroRegi__1B0907CE">
       <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />
       <End Role="Colegio" EntitySet="Colegio" />
@@ -409,17 +443,17 @@
       <End Role="Colegio" EntitySet="Colegio" />
       <End Role="PersonalColegio" EntitySet="PersonalColegio" />
     </AssociationSet>
-    <AssociationSet Name="FK__Diploma__idGrupo__34C8D9D1" Association="Self.FK__Diploma__idGrupo__34C8D9D1">
+    <AssociationSet Name="FK__Diploma__idGrupo__2C3393D0" Association="Self.FK__Diploma__idGrupo__2C3393D0">
       <End Role="GrupoDiploma" EntitySet="GrupoDiploma" />
       <End Role="Diploma" EntitySet="Diploma" />
     </AssociationSet>
-    <AssociationSet Name="FK__Diploma__idLegal__33D4B598" Association="Self.FK__Diploma__idLegal__33D4B598">
+    <AssociationSet Name="FK__Legalizac__idDip__35BCFE0A" Association="Self.FK__Legalizac__idDip__35BCFE0A">
+      <End Role="Diploma" EntitySet="Diploma" />
       <End Role="Legalizacion" EntitySet="Legalizacion" />
-      <End Role="Diploma" EntitySet="Diploma" />
     </AssociationSet>
-    <AssociationSet Name="FK__Estudiant__idDip__398D8EEE" Association="Self.FK__Estudiant__idDip__398D8EEE">
+    <AssociationSet Name="FK__ListadeEs__idDip__31EC6D26" Association="Self.FK__ListadeEs__idDip__31EC6D26">
       <End Role="Diploma" EntitySet="Diploma" />
-      <End Role="Estudiante" EntitySet="Estudiante" />
+      <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
     </AssociationSet>
     <AssociationSet Name="FK__Estudiant__idLis__3A81B327" Association="Self.FK__Estudiant__idLis__3A81B327">
       <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
@@ -429,11 +463,11 @@
       <End Role="Rol" EntitySet="Rol" />
       <End Role="Estudiante" EntitySet="Estudiante" />
     </AssociationSet>
-    <AssociationSet Name="FK__Estudiante__CI__38996AB5" Association="Self.FK__Estudiante__CI__38996AB5">
+    <AssociationSet Name="FK__Estudiante__CI__398D8EEE" Association="Self.FK__Estudiante__CI__398D8EEE">
       <End Role="Persona" EntitySet="Persona" />
       <End Role="Estudiante" EntitySet="Estudiante" />
     </AssociationSet>
-    <AssociationSet Name="FK__ListadeEs__idGes__2D27B809" Association="Self.FK__ListadeEs__idGes__2D27B809">
+    <AssociationSet Name="FK__ListadeEs__idGes__30F848ED" Association="Self.FK__ListadeEs__idGes__30F848ED">
       <End Role="Gestion" EntitySet="Gestion" />
       <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
     </AssociationSet>
@@ -441,11 +475,11 @@
       <End Role="PersonalColegio" EntitySet="PersonalColegio" />
       <End Role="GrupoDiploma" EntitySet="GrupoDiploma" />
     </AssociationSet>
-    <AssociationSet Name="FK__ListadeEs__idGru__2C3393D0" Association="Self.FK__ListadeEs__idGru__2C3393D0">
+    <AssociationSet Name="FK__ListadeEs__idGru__300424B4" Association="Self.FK__ListadeEs__idGru__300424B4">
       <End Role="GrupoDiploma" EntitySet="GrupoDiploma" />
       <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
     </AssociationSet>
-    <AssociationSet Name="FK__Legalizac__nroRe__300424B4" Association="Self.FK__Legalizac__nroRe__300424B4">
+    <AssociationSet Name="FK__Legalizac__nroRe__34C8D9D1" Association="Self.FK__Legalizac__nroRe__34C8D9D1">
       <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />
       <End Role="Legalizacion" EntitySet="Legalizacion" />
     </AssociationSet>
@@ -469,16 +503,9 @@
       <End Role="Rol" EntitySet="Rol" />
       <End Role="PersonalColegio" EntitySet="PersonalColegio" />
     </AssociationSet>
-    <EntitySet Name="Vista_PC_Rol" EntityType="ProIntBDModel.Vista_PC_Rol" />
+    <FunctionImport Name="sp_CrearDiplomas" />
+    <FunctionImport Name="sp_ImportCSV">
+      <Parameter Name="csvPath" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
-  <EntityType Name="Vista_PC_Rol">
-    <Key>
-      <PropertyRef Name="loginPColegio" />
-      <PropertyRef Name="passPColegio" />
-      <PropertyRef Name="idRol" />
-    </Key>
-    <Property Name="loginPColegio" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="passPColegio" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="idRol" Type="Int32" Nullable="false" />
-  </EntityType>
 </Schema>

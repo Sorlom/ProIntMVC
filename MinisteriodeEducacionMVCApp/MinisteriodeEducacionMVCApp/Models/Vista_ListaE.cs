@@ -12,15 +12,17 @@ namespace MinisteriodeEducacionMVCApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Legalizacion
+    public partial class Vista_ListaE
     {
-        public int idLegalizacion { get; set; }
-        public string firmaDigital { get; set; }
-        public Nullable<System.DateTime> fechaL { get; set; }
-        public int nroRegistroMins { get; set; }
-        public int idDiploma { get; set; }
-    
-        public virtual Diploma Diploma { get; set; }
-        public virtual PersonalMinisterio PersonalMinisterio { get; set; }
+        public int idListaEstudiante { get; set; }
+        public string nombre { get; set; }
+        public string apellidoPaterno { get; set; }
+        public string apellidoMaterno { get; set; }
+        public string correo { get; set; }
+        public string paralelo { get; set; }
+        public double promedio { get; set; }
+        public int idGrupoDiploma { get; set; }
+        public int idGestion { get; set; }
+        public Nullable<int> idDiploma { get; set; }
     }
 }

@@ -50,10 +50,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.pararelo, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.paralelo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.pararelo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.pararelo, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.paralelo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.paralelo, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -78,6 +78,14 @@
             <div class="col-md-10">
                 @Html.DropDownList("idGestion", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idGestion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.idDiploma, "idDiploma", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idDiploma", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idDiploma, "", new { @class = "text-danger" })
             </div>
         </div>
 

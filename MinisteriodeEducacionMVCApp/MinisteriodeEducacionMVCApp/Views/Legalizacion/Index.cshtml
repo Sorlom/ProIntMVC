@@ -12,16 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.firmaDigital)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.fechaL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diploma.metadatos)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PersonalMinisterio.loginMinistro)
@@ -32,16 +29,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.firmaDigital)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.fechaL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diploma.metadatos)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PersonalMinisterio.loginMinistro)

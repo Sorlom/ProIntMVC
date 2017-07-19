@@ -24,10 +24,10 @@
             @Html.DisplayNameFor(model => model.codigoLegalizacion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GrupoDiploma.nombre)
+            @Html.DisplayNameFor(model => model.idListaEstudiante)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Legalizacion.estado)
+            @Html.DisplayNameFor(model => model.GrupoDiploma.nombre)
         </th>
         <th></th>
     </tr>
@@ -47,10 +47,10 @@
             @Html.DisplayFor(modelItem => item.codigoLegalizacion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GrupoDiploma.nombre)
+            @Html.DisplayFor(modelItem => item.idListaEstudiante)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Legalizacion.estado)
+            @Html.DisplayFor(modelItem => item.GrupoDiploma.nombre)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.idDiploma }) |

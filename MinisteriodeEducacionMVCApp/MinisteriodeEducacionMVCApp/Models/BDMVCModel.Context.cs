@@ -12,6 +12,8 @@ namespace MinisteriodeEducacionMVCApp.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ProIntBDEntities : DbContext
     {
@@ -38,6 +40,21 @@ namespace MinisteriodeEducacionMVCApp.Models
         public virtual DbSet<PersonalMinisterio> PersonalMinisterio { get; set; }
         public virtual DbSet<Privilegios> Privilegios { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
+        public virtual DbSet<Vista_ListaE> Vista_ListaE { get; set; }
         public virtual DbSet<Vista_PC_Rol> Vista_PC_Rol { get; set; }
+    
+        public virtual int sp_CrearDiplomas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CrearDiplomas");
+        }
+    
+        public virtual int sp_ImportCSV(string csvPath)
+        {
+            var csvPathParameter = csvPath != null ?
+                new ObjectParameter("csvPath", csvPath) :
+                new ObjectParameter("csvPath", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ImportCSV", csvPathParameter);
+        }
     }
 }

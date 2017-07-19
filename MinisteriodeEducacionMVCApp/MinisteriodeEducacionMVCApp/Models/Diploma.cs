@@ -17,20 +17,22 @@ namespace MinisteriodeEducacionMVCApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Diploma()
         {
-            this.Estudiante = new HashSet<Estudiante>();
+            this.Legalizacion = new HashSet<Legalizacion>();
+            this.ListadeEstudiantes = new HashSet<ListadeEstudiantes>();
         }
     
         public int idDiploma { get; set; }
         public System.DateTime fecha { get; set; }
         public string metadatos { get; set; }
         public string codigohex { get; set; }
-        public Nullable<int> idLegalizacion { get; set; }
         public string codigoLegalizacion { get; set; }
+        public int idListaEstudiante { get; set; }
         public int idGrupoDiploma { get; set; }
     
         public virtual GrupoDiploma GrupoDiploma { get; set; }
-        public virtual Legalizacion Legalizacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Estudiante> Estudiante { get; set; }
+        public virtual ICollection<Legalizacion> Legalizacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ListadeEstudiantes> ListadeEstudiantes { get; set; }
     }
 }

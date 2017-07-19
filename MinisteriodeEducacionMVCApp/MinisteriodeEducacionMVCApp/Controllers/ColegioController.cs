@@ -11,20 +11,18 @@ using MinisteriodeEducacionMVCApp.Models;
 namespace MinisteriodeEducacionMVCApp.Controllers
 {
     [Authorize(Roles = "R1,R4")]
-    public class ColegiosController : Controller
+    public class ColegioController : Controller
     {
         private ProIntBDEntities db = new ProIntBDEntities();
 
-        // GET: Colegios
-        
+        // GET: Colegio
         public ActionResult Index()
         {
-            var colegio = db.Colegio.Include(c => c.PersonalColegio);
-
+            var colegio = db.Colegio.Include(c => c.PersonalMinisterio);
             return View(colegio.ToList());
         }
 
-        // GET: Colegios/Details/5
+        // GET: Colegio/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,14 +37,14 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             return View(colegio);
         }
 
-        // GET: Colegios/Create
+        // GET: Colegio/Create
         public ActionResult Create()
         {
             ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro");
             return View();
         }
 
-        // POST: Colegios/Create
+        // POST: Colegio/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,7 +62,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             return View(colegio);
         }
 
-        // GET: Colegios/Edit/5
+        // GET: Colegio/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,7 +78,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             return View(colegio);
         }
 
-        // POST: Colegios/Edit/5
+        // POST: Colegio/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -97,7 +95,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             return View(colegio);
         }
 
-        // GET: Colegios/Delete/5
+        // GET: Colegio/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,7 +110,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             return View(colegio);
         }
 
-        // POST: Colegios/Delete/5
+        // POST: Colegio/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

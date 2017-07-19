@@ -4,39 +4,40 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fc22983c73bb4876bc70bf587e1c1141" Name="Diagram1" ZoomLevel="63">
-        <EntityTypeShape EntityType="ProIntBDModel.Bitacora" Width="1.5" PointX="1.375" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Colegio" Width="1.5" PointX="6.125" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Diploma" Width="1.5" PointX="7" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Estudiante" Width="1.5" PointX="3.875" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Gestion" Width="1.5" PointX="8.375" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.GrupoDiploma" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Legalizacion" Width="1.5" PointX="8.125" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.ListadeEstudiantes" Width="1.5" PointX="10" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Persona" Width="1.5" PointX="1.125" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.PersonalColegio" Width="1.5" PointX="3.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.PersonalMinisterio" Width="1.5" PointX="3.625" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Privilegios" Width="1.5" PointX="0.625" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Rol" Width="1.5" PointX="0.625" PointY="8" IsExpanded="true" />
+      <Diagram DiagramId="0313f257ba0944689b4986fe978b8617" Name="Diagram1">
+        <EntityTypeShape EntityType="ProIntBDModel.Bitacora" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Colegio" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Diploma" Width="1.5" PointX="15" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Estudiante" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Gestion" Width="1.5" PointX="10.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.GrupoDiploma" Width="1.5" PointX="12.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Legalizacion" Width="1.5" PointX="17.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.ListadeEstudiantes" Width="1.5" PointX="12.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Persona" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.PersonalColegio" Width="1.5" PointX="10.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.PersonalMinisterio" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Privilegios" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Rol" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Vista_ListaE" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Vista_PC_Rol" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="ProIntBDModel.FK__Colegio__nroRegi__1B0907CE" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__Gestion__idColeg__25869641" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__PersonalC__idCol__1FCDBCEB" ManuallyRouted="false" />
-        <AssociationConnector Association="ProIntBDModel.FK__Diploma__idGrupo__34C8D9D1" ManuallyRouted="false" />
-        <AssociationConnector Association="ProIntBDModel.FK__Diploma__idLegal__33D4B598" ManuallyRouted="false" />
-        <AssociationConnector Association="ProIntBDModel.FK__Estudiant__idDip__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Diploma__idGrupo__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Legalizac__idDip__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__ListadeEs__idDip__31EC6D26" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__Estudiant__idLis__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__Estudiant__idRol__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="ProIntBDModel.FK__Estudiante__CI__38996AB5" ManuallyRouted="false" />
-        <AssociationConnector Association="ProIntBDModel.FK__ListadeEs__idGes__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Estudiante__CI__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__ListadeEs__idGes__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__GrupoDipl__nroRe__286302EC" ManuallyRouted="false" />
-        <AssociationConnector Association="ProIntBDModel.FK__ListadeEs__idGru__2C3393D0" ManuallyRouted="false" />
-        <AssociationConnector Association="ProIntBDModel.FK__Legalizac__nroRe__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__ListadeEs__idGru__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="ProIntBDModel.FK__Legalizac__nroRe__34C8D9D1" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__PersonalCole__CI__1ED998B2" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__PersonalMini__CI__164452B1" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__PersonalM__idRol__173876EA" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__Privilegi__idRol__22AA2996" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.PColegio_Rol" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ProIntBDModel.Vista_PC_Rol" Width="1.5" PointX="6.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

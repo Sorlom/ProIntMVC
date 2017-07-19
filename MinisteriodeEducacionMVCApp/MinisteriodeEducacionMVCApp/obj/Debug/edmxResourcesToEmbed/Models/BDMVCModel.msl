@@ -31,8 +31,8 @@
           <ScalarProperty Name="fecha" ColumnName="fecha" />
           <ScalarProperty Name="metadatos" ColumnName="metadatos" />
           <ScalarProperty Name="codigohex" ColumnName="codigohex" />
-          <ScalarProperty Name="idLegalizacion" ColumnName="idLegalizacion" />
           <ScalarProperty Name="codigoLegalizacion" ColumnName="codigoLegalizacion" />
+          <ScalarProperty Name="idListaEstudiante" ColumnName="idListaEstudiante" />
           <ScalarProperty Name="idGrupoDiploma" ColumnName="idGrupoDiploma" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -45,7 +45,6 @@
           <ScalarProperty Name="passEstudiante" ColumnName="passEstudiante" />
           <ScalarProperty Name="correo" ColumnName="correo" />
           <ScalarProperty Name="CI" ColumnName="CI" />
-          <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
           <ScalarProperty Name="idListaEstudiante" ColumnName="idListaEstudiante" />
           <ScalarProperty Name="idRol" ColumnName="idRol" />
         </MappingFragment>
@@ -74,11 +73,10 @@
       <EntityTypeMapping TypeName="ProIntBDModel.Legalizacion">
         <MappingFragment StoreEntitySet="Legalizacion">
           <ScalarProperty Name="idLegalizacion" ColumnName="idLegalizacion" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="firmaDigital" ColumnName="firmaDigital" />
           <ScalarProperty Name="fechaL" ColumnName="fechaL" />
           <ScalarProperty Name="nroRegistroMins" ColumnName="nroRegistroMins" />
+          <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -90,10 +88,11 @@
           <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
           <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
           <ScalarProperty Name="correo" ColumnName="correo" />
-          <ScalarProperty Name="pararelo" ColumnName="pararelo" />
+          <ScalarProperty Name="paralelo" ColumnName="paralelo" />
           <ScalarProperty Name="promedio" ColumnName="promedio" />
           <ScalarProperty Name="idGrupoDiploma" ColumnName="idGrupoDiploma" />
           <ScalarProperty Name="idGestion" ColumnName="idGestion" />
+          <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -153,6 +152,31 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Vista_ListaE">
+      <EntityTypeMapping TypeName="ProIntBDModel.Vista_ListaE">
+        <MappingFragment StoreEntitySet="Vista_ListaE">
+          <ScalarProperty Name="idListaEstudiante" ColumnName="idListaEstudiante" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+          <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="paralelo" ColumnName="paralelo" />
+          <ScalarProperty Name="promedio" ColumnName="promedio" />
+          <ScalarProperty Name="idGrupoDiploma" ColumnName="idGrupoDiploma" />
+          <ScalarProperty Name="idGestion" ColumnName="idGestion" />
+          <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vista_PC_Rol">
+      <EntityTypeMapping TypeName="ProIntBDModel.Vista_PC_Rol">
+        <MappingFragment StoreEntitySet="Vista_PC_Rol">
+          <ScalarProperty Name="loginPColegio" ColumnName="loginPColegio" />
+          <ScalarProperty Name="passPColegio" ColumnName="passPColegio" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="PColegio_Rol" TypeName="ProIntBDModel.PColegio_Rol" StoreEntitySet="PColegio_Rol">
       <EndProperty Name="Rol">
         <ScalarProperty Name="idRol" ColumnName="idRol" />
@@ -161,14 +185,7 @@
         <ScalarProperty Name="nroRegistroPColegio" ColumnName="nroRegistroPColegio" />
       </EndProperty>
     </AssociationSetMapping>
-    <EntitySetMapping Name="Vista_PC_Rol">
-      <EntityTypeMapping TypeName="ProIntBDModel.Vista_PC_Rol">
-        <MappingFragment StoreEntitySet="Vista_PC_Rol">
-          <ScalarProperty Name="idRol" ColumnName="idRol" />
-          <ScalarProperty Name="passPColegio" ColumnName="passPColegio" />
-          <ScalarProperty Name="loginPColegio" ColumnName="loginPColegio" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_CrearDiplomas" FunctionName="ProIntBDModel.Store.sp_CrearDiplomas" />
+    <FunctionImportMapping FunctionImportName="sp_ImportCSV" FunctionName="ProIntBDModel.Store.sp_ImportCSV" />
   </EntityContainerMapping>
 </Mapping>

@@ -1,0 +1,66 @@
+﻿@model MinisteriodeEducacionMVCApp.Models.Estudiante
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Estudiante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.loginEstudiante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loginEstudiante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passEstudiante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passEstudiante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ListadeEstudiantes.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ListadeEstudiantes.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rol.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rol.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Persona.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Persona.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.nroRegistroEst }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

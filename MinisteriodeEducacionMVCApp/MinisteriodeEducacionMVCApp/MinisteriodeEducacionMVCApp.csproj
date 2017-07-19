@@ -130,11 +130,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ColegiosController.cs" />
-    <Compile Include="Controllers\DiplomataController.cs" />
+    <Compile Include="Controllers\ColegioController.cs" />
+    <Compile Include="Controllers\DiplomaController.cs" />
+    <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Controllers\GrupoDiplomasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LegalizacionsController.cs" />
+    <Compile Include="Controllers\LegalizacionController.cs" />
     <Compile Include="Controllers\ListadeEstudiantesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -192,6 +193,9 @@
       <DependentUpon>BDMVCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rol.cs">
+      <DependentUpon>BDMVCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_ListaE.cs">
       <DependentUpon>BDMVCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vista_PC_Rol.cs">
@@ -252,32 +256,37 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\ListadeEstudiantes\Create.cshtml" />
-    <Content Include="Views\ListadeEstudiantes\Delete.cshtml" />
-    <Content Include="Views\ListadeEstudiantes\Details.cshtml" />
-    <Content Include="Views\ListadeEstudiantes\Edit.cshtml" />
-    <Content Include="Views\ListadeEstudiantes\Index.cshtml" />
-    <Content Include="Views\Diplomata\Create.cshtml" />
-    <Content Include="Views\Diplomata\Delete.cshtml" />
-    <Content Include="Views\Diplomata\Details.cshtml" />
-    <Content Include="Views\Diplomata\Edit.cshtml" />
-    <Content Include="Views\Diplomata\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Colegio\Create.cshtml" />
+    <Content Include="Views\Colegio\Delete.cshtml" />
+    <Content Include="Views\Colegio\Details.cshtml" />
+    <Content Include="Views\Colegio\Edit.cshtml" />
+    <Content Include="Views\Colegio\Index.cshtml" />
+    <Content Include="Views\Diploma\Create.cshtml" />
+    <Content Include="Views\Diploma\Delete.cshtml" />
+    <Content Include="Views\Diploma\Details.cshtml" />
+    <Content Include="Views\Diploma\Edit.cshtml" />
+    <Content Include="Views\Diploma\Index.cshtml" />
+    <Content Include="Views\Estudiante\Create.cshtml" />
+    <Content Include="Views\Estudiante\Delete.cshtml" />
+    <Content Include="Views\Estudiante\Details.cshtml" />
+    <Content Include="Views\Estudiante\Edit.cshtml" />
+    <Content Include="Views\Estudiante\Index.cshtml" />
     <Content Include="Views\GrupoDiplomas\Create.cshtml" />
     <Content Include="Views\GrupoDiplomas\Delete.cshtml" />
     <Content Include="Views\GrupoDiplomas\Details.cshtml" />
     <Content Include="Views\GrupoDiplomas\Edit.cshtml" />
     <Content Include="Views\GrupoDiplomas\Index.cshtml" />
-    <Content Include="Views\Legalizacions\Create.cshtml" />
-    <Content Include="Views\Legalizacions\Delete.cshtml" />
-    <Content Include="Views\Legalizacions\Details.cshtml" />
-    <Content Include="Views\Legalizacions\Edit.cshtml" />
-    <Content Include="Views\Legalizacions\Index.cshtml" />
-    <Content Include="Views\Colegios\Create.cshtml" />
-    <Content Include="Views\Colegios\Delete.cshtml" />
-    <Content Include="Views\Colegios\Details.cshtml" />
-    <Content Include="Views\Colegios\Edit.cshtml" />
-    <Content Include="Views\Colegios\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Legalizacion\Create.cshtml" />
+    <Content Include="Views\Legalizacion\Delete.cshtml" />
+    <Content Include="Views\Legalizacion\Details.cshtml" />
+    <Content Include="Views\Legalizacion\Edit.cshtml" />
+    <Content Include="Views\Legalizacion\Index.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\Create.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\Delete.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\Details.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\Edit.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

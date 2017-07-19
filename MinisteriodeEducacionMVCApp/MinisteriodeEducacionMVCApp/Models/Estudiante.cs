@@ -19,11 +19,9 @@ namespace MinisteriodeEducacionMVCApp.Models
         public string passEstudiante { get; set; }
         public string correo { get; set; }
         public int CI { get; set; }
-        public Nullable<int> idDiploma { get; set; }
         public int idListaEstudiante { get; set; }
         public int idRol { get; set; }
     
-        public virtual Diploma Diploma { get; set; }
         public virtual ListadeEstudiantes ListadeEstudiantes { get; set; }
         public virtual Rol Rol { get; set; }
         public virtual Persona Persona { get; set; }

@@ -18,8 +18,8 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         // GET: ListadeEstudiantes
         public ActionResult Index()
         {
-            var listadeEstudiantes = db.ListadeEstudiantes.Include(l => l.Gestion).Include(l => l.GrupoDiploma);
-            return View(listadeEstudiantes.Take(10).ToList());
+            var listadeEstudiantes = db.ListadeEstudiantes.Include(l => l.Diploma).Include(l => l.Gestion).Include(l => l.GrupoDiploma);
+            return View(listadeEstudiantes.ToList());
         }
 
         // GET: ListadeEstudiantes/Details/5
@@ -40,6 +40,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         // GET: ListadeEstudiantes/Create
         public ActionResult Create()
         {
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos");
             ViewBag.idGestion = new SelectList(db.Gestion, "idGestion", "nombrePromo");
             ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre");
             return View();
@@ -50,7 +51,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idListaEstudiante,nombre,apellidoPaterno,apellidoMaterno,correo,pararelo,promedio,idGrupoDiploma,idGestion")] ListadeEstudiantes listadeEstudiantes)
+        public ActionResult Create([Bind(Include = "idListaEstudiante,nombre,apellidoPaterno,apellidoMaterno,correo,paralelo,promedio,idGrupoDiploma,idGestion,idDiploma")] ListadeEstudiantes listadeEstudiantes)
         {
             if (ModelState.IsValid)
             {
@@ -59,6 +60,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos", listadeEstudiantes.idDiploma);
             ViewBag.idGestion = new SelectList(db.Gestion, "idGestion", "nombrePromo", listadeEstudiantes.idGestion);
             ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre", listadeEstudiantes.idGrupoDiploma);
             return View(listadeEstudiantes);
@@ -76,6 +78,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos", listadeEstudiantes.idDiploma);
             ViewBag.idGestion = new SelectList(db.Gestion, "idGestion", "nombrePromo", listadeEstudiantes.idGestion);
             ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre", listadeEstudiantes.idGrupoDiploma);
             return View(listadeEstudiantes);
@@ -86,7 +89,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idListaEstudiante,nombre,apellidoPaterno,apellidoMaterno,correo,pararelo,promedio,idGrupoDiploma,idGestion")] ListadeEstudiantes listadeEstudiantes)
+        public ActionResult Edit([Bind(Include = "idListaEstudiante,nombre,apellidoPaterno,apellidoMaterno,correo,paralelo,promedio,idGrupoDiploma,idGestion,idDiploma")] ListadeEstudiantes listadeEstudiantes)
         {
             if (ModelState.IsValid)
             {
@@ -94,6 +97,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos", listadeEstudiantes.idDiploma);
             ViewBag.idGestion = new SelectList(db.Gestion, "idGestion", "nombrePromo", listadeEstudiantes.idGestion);
             ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre", listadeEstudiantes.idGrupoDiploma);
             return View(listadeEstudiantes);

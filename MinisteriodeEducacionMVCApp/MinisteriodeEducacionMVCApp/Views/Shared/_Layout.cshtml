@@ -25,14 +25,18 @@
                     {
                         if (User.IsInRole("R1") || User.IsInRole("R4"))
                         {
-                        <li>@Html.ActionLink("Colegios", "Index", "Colegios")</li>
-                        <li>@Html.ActionLink("Legalizacion", "Index", "Legalizacions")</li>
+                        <li>@Html.ActionLink("Colegios", "Index", "Colegio")</li>
+                        <li>@Html.ActionLink("Legalizacion", "Index", "Legalizacion")</li>
                         }
                         if (User.IsInRole("R1") || User.IsInRole("R2"))
                         {
                             <li>@Html.ActionLink("Lista Estudiantes", "Index", "ListadeEstudiantes")</li>
                             <li>@Html.ActionLink("Grupo Diplomas", "Index", "GrupoDiplomas")</li>
                             <li>@Html.ActionLink("Diplomas", "Index", "Diplomata")</li>
+                        }
+                        if (User.IsInRole("R1") || User.IsInRole("R2") || User.IsInRole("R3"))
+                        {
+                            <li>@Html.ActionLink("Estudiante", "Index", "Estudiante")</li>
                         }
                             <li><a href="#">Bienvenido Usuario: @User.Identity.Name</a></li>
                             <li>@Html.ActionLink("Logout", "Logout", "Login")</li>

@@ -25,11 +25,13 @@ namespace MinisteriodeEducacionMVCApp.Models
         public string apellidoPaterno { get; set; }
         public string apellidoMaterno { get; set; }
         public string correo { get; set; }
-        public string pararelo { get; set; }
+        public string paralelo { get; set; }
         public double promedio { get; set; }
         public int idGrupoDiploma { get; set; }
         public int idGestion { get; set; }
+        public Nullable<int> idDiploma { get; set; }
     
+        public virtual Diploma Diploma { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Estudiante> Estudiante { get; set; }
         public virtual Gestion Gestion { get; set; }

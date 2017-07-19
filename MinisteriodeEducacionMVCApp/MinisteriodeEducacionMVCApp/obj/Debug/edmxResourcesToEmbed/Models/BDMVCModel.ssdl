@@ -29,8 +29,8 @@
     <Property Name="fecha" Type="date" Nullable="false" />
     <Property Name="metadatos" Type="varchar" MaxLength="300" Nullable="false" />
     <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
-    <Property Name="idLegalizacion" Type="int" />
     <Property Name="codigoLegalizacion" Type="varchar" MaxLength="800" />
+    <Property Name="idListaEstudiante" Type="int" Nullable="false" />
     <Property Name="idGrupoDiploma" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Estudiante">
@@ -42,7 +42,6 @@
     <Property Name="passEstudiante" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="correo" Type="varchar" MaxLength="80" Nullable="false" />
     <Property Name="CI" Type="int" Nullable="false" />
-    <Property Name="idDiploma" Type="int" />
     <Property Name="idListaEstudiante" Type="int" Nullable="false" />
     <Property Name="idRol" Type="int" Nullable="false" />
   </EntityType>
@@ -68,11 +67,10 @@
       <PropertyRef Name="idLegalizacion" />
     </Key>
     <Property Name="idLegalizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="estado" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="firmaDigital" Type="varchar" MaxLength="800" Nullable="false" />
-    <Property Name="fechaL" Type="date" Nullable="false" />
+    <Property Name="firmaDigital" Type="varchar" MaxLength="800" />
+    <Property Name="fechaL" Type="date" />
     <Property Name="nroRegistroMins" Type="int" Nullable="false" />
+    <Property Name="idDiploma" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ListadeEstudiantes">
     <Key>
@@ -83,10 +81,11 @@
     <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="correo" Type="varchar" MaxLength="80" Nullable="false" />
-    <Property Name="pararelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="paralelo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="promedio" Type="float" Nullable="false" />
     <Property Name="idGrupoDiploma" Type="int" Nullable="false" />
     <Property Name="idGestion" Type="int" Nullable="false" />
+    <Property Name="idDiploma" Type="int" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ProIntBD.dbo.PColegio_Rol' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -150,6 +149,45 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.PColegio_Rol' no tiene definida
     <Property Name="descripcion" Type="varchar" MaxLength="300" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'ProIntBD.dbo.Temp_ListadeEstudiantes' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Temp_ListadeEstudiantes">
+          <Property Name="idListaEstudiante" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" />
+          <Property Name="correo" Type="varchar" MaxLength="80" />
+          <Property Name="paralelo" Type="varchar" MaxLength="50" />
+          <Property Name="promedio" Type="float" />
+          <Property Name="idGrupoDiploma" Type="int" />
+          <Property Name="idGestion" Type="int" />
+          <Property Name="idDiploma" Type="int" />
+        </EntityType>-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_ListaE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Vista_ListaE">
+    <Key>
+      <PropertyRef Name="idListaEstudiante" />
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="apellidoPaterno" />
+      <PropertyRef Name="apellidoMaterno" />
+      <PropertyRef Name="correo" />
+      <PropertyRef Name="paralelo" />
+      <PropertyRef Name="promedio" />
+      <PropertyRef Name="idGrupoDiploma" />
+      <PropertyRef Name="idGestion" />
+    </Key>
+    <Property Name="idListaEstudiante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="paralelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="promedio" Type="float" Nullable="false" />
+    <Property Name="idGrupoDiploma" Type="int" Nullable="false" />
+    <Property Name="idGestion" Type="int" Nullable="false" />
+    <Property Name="idDiploma" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Vista_PC_Rol">
     <Key>
@@ -173,7 +211,7 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Diploma__idGrupo__34C8D9D1">
+  <Association Name="FK__Diploma__idGrupo__2C3393D0">
     <End Role="GrupoDiploma" Type="Self.GrupoDiploma" Multiplicity="1" />
     <End Role="Diploma" Type="Self.Diploma" Multiplicity="*" />
     <ReferentialConstraint>
@@ -182,30 +220,6 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
       </Principal>
       <Dependent Role="Diploma">
         <PropertyRef Name="idGrupoDiploma" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Diploma__idLegal__33D4B598">
-    <End Role="Legalizacion" Type="Self.Legalizacion" Multiplicity="0..1" />
-    <End Role="Diploma" Type="Self.Diploma" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Legalizacion">
-        <PropertyRef Name="idLegalizacion" />
-      </Principal>
-      <Dependent Role="Diploma">
-        <PropertyRef Name="idLegalizacion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Estudiant__idDip__398D8EEE">
-    <End Role="Diploma" Type="Self.Diploma" Multiplicity="0..1" />
-    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Diploma">
-        <PropertyRef Name="idDiploma" />
-      </Principal>
-      <Dependent Role="Estudiante">
-        <PropertyRef Name="idDiploma" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -233,7 +247,7 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Estudiante__CI__38996AB5">
+  <Association Name="FK__Estudiante__CI__398D8EEE">
     <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
     <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
     <ReferentialConstraint>
@@ -269,7 +283,19 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Legalizac__nroRe__300424B4">
+  <Association Name="FK__Legalizac__idDip__35BCFE0A">
+    <End Role="Diploma" Type="Self.Diploma" Multiplicity="1" />
+    <End Role="Legalizacion" Type="Self.Legalizacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diploma">
+        <PropertyRef Name="idDiploma" />
+      </Principal>
+      <Dependent Role="Legalizacion">
+        <PropertyRef Name="idDiploma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Legalizac__nroRe__34C8D9D1">
     <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="1" />
     <End Role="Legalizacion" Type="Self.Legalizacion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -281,7 +307,19 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ListadeEs__idGes__2D27B809">
+  <Association Name="FK__ListadeEs__idDip__31EC6D26">
+    <End Role="Diploma" Type="Self.Diploma" Multiplicity="0..1" />
+    <End Role="ListadeEstudiantes" Type="Self.ListadeEstudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diploma">
+        <PropertyRef Name="idDiploma" />
+      </Principal>
+      <Dependent Role="ListadeEstudiantes">
+        <PropertyRef Name="idDiploma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListadeEs__idGes__30F848ED">
     <End Role="Gestion" Type="Self.Gestion" Multiplicity="1" />
     <End Role="ListadeEstudiantes" Type="Self.ListadeEstudiantes" Multiplicity="*" />
     <ReferentialConstraint>
@@ -293,7 +331,7 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ListadeEs__idGru__2C3393D0">
+  <Association Name="FK__ListadeEs__idGru__300424B4">
     <End Role="GrupoDiploma" Type="Self.GrupoDiploma" Multiplicity="1" />
     <End Role="ListadeEstudiantes" Type="Self.ListadeEstudiantes" Multiplicity="*" />
     <ReferentialConstraint>
@@ -389,6 +427,10 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="sp_CrearDiplomas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_ImportCSV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="csvPath" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="ProIntBDModelStoreContainer">
     <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colegio" EntityType="Self.Colegio" Schema="dbo" store:Type="Tables" />
@@ -409,6 +451,20 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
     [PColegio_Rol].[nroRegistroPColegio] AS [nroRegistroPColegio]
     FROM [dbo].[PColegio_Rol] AS [PColegio_Rol]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="Vista_ListaE" EntityType="Self.Vista_ListaE" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Vista_ListaE].[idListaEstudiante] AS [idListaEstudiante], 
+    [Vista_ListaE].[nombre] AS [nombre], 
+    [Vista_ListaE].[apellidoPaterno] AS [apellidoPaterno], 
+    [Vista_ListaE].[apellidoMaterno] AS [apellidoMaterno], 
+    [Vista_ListaE].[correo] AS [correo], 
+    [Vista_ListaE].[paralelo] AS [paralelo], 
+    [Vista_ListaE].[promedio] AS [promedio], 
+    [Vista_ListaE].[idGrupoDiploma] AS [idGrupoDiploma], 
+    [Vista_ListaE].[idGestion] AS [idGestion], 
+    [Vista_ListaE].[idDiploma] AS [idDiploma]
+    FROM [dbo].[Vista_ListaE] AS [Vista_ListaE]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="Vista_PC_Rol" EntityType="Self.Vista_PC_Rol" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Vista_PC_Rol].[loginPColegio] AS [loginPColegio], 
@@ -420,17 +476,9 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
       <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />
       <End Role="Colegio" EntitySet="Colegio" />
     </AssociationSet>
-    <AssociationSet Name="FK__Diploma__idGrupo__34C8D9D1" Association="Self.FK__Diploma__idGrupo__34C8D9D1">
+    <AssociationSet Name="FK__Diploma__idGrupo__2C3393D0" Association="Self.FK__Diploma__idGrupo__2C3393D0">
       <End Role="GrupoDiploma" EntitySet="GrupoDiploma" />
       <End Role="Diploma" EntitySet="Diploma" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Diploma__idLegal__33D4B598" Association="Self.FK__Diploma__idLegal__33D4B598">
-      <End Role="Legalizacion" EntitySet="Legalizacion" />
-      <End Role="Diploma" EntitySet="Diploma" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Estudiant__idDip__398D8EEE" Association="Self.FK__Estudiant__idDip__398D8EEE">
-      <End Role="Diploma" EntitySet="Diploma" />
-      <End Role="Estudiante" EntitySet="Estudiante" />
     </AssociationSet>
     <AssociationSet Name="FK__Estudiant__idLis__3A81B327" Association="Self.FK__Estudiant__idLis__3A81B327">
       <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
@@ -440,7 +488,7 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
       <End Role="Rol" EntitySet="Rol" />
       <End Role="Estudiante" EntitySet="Estudiante" />
     </AssociationSet>
-    <AssociationSet Name="FK__Estudiante__CI__38996AB5" Association="Self.FK__Estudiante__CI__38996AB5">
+    <AssociationSet Name="FK__Estudiante__CI__398D8EEE" Association="Self.FK__Estudiante__CI__398D8EEE">
       <End Role="Persona" EntitySet="Persona" />
       <End Role="Estudiante" EntitySet="Estudiante" />
     </AssociationSet>
@@ -452,15 +500,23 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
       <End Role="PersonalColegio" EntitySet="PersonalColegio" />
       <End Role="GrupoDiploma" EntitySet="GrupoDiploma" />
     </AssociationSet>
-    <AssociationSet Name="FK__Legalizac__nroRe__300424B4" Association="Self.FK__Legalizac__nroRe__300424B4">
+    <AssociationSet Name="FK__Legalizac__idDip__35BCFE0A" Association="Self.FK__Legalizac__idDip__35BCFE0A">
+      <End Role="Diploma" EntitySet="Diploma" />
+      <End Role="Legalizacion" EntitySet="Legalizacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Legalizac__nroRe__34C8D9D1" Association="Self.FK__Legalizac__nroRe__34C8D9D1">
       <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />
       <End Role="Legalizacion" EntitySet="Legalizacion" />
     </AssociationSet>
-    <AssociationSet Name="FK__ListadeEs__idGes__2D27B809" Association="Self.FK__ListadeEs__idGes__2D27B809">
+    <AssociationSet Name="FK__ListadeEs__idDip__31EC6D26" Association="Self.FK__ListadeEs__idDip__31EC6D26">
+      <End Role="Diploma" EntitySet="Diploma" />
+      <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListadeEs__idGes__30F848ED" Association="Self.FK__ListadeEs__idGes__30F848ED">
       <End Role="Gestion" EntitySet="Gestion" />
       <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
     </AssociationSet>
-    <AssociationSet Name="FK__ListadeEs__idGru__2C3393D0" Association="Self.FK__ListadeEs__idGru__2C3393D0">
+    <AssociationSet Name="FK__ListadeEs__idGru__300424B4" Association="Self.FK__ListadeEs__idGru__300424B4">
       <End Role="GrupoDiploma" EntitySet="GrupoDiploma" />
       <End Role="ListadeEstudiantes" EntitySet="ListadeEstudiantes" />
     </AssociationSet>

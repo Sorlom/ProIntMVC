@@ -10,113 +10,113 @@ using MinisteriodeEducacionMVCApp.Models;
 
 namespace MinisteriodeEducacionMVCApp.Controllers
 {
-    [Authorize(Roles = "R1,R4")]
-    public class LegalizacionsController : Controller
+    [Authorize(Roles = "R1,R2")]
+    public class DiplomaController : Controller
     {
         private ProIntBDEntities db = new ProIntBDEntities();
 
-        // GET: Legalizacions
+        // GET: Diploma
         public ActionResult Index()
         {
-            var legalizacion = db.Legalizacion.Include(l => l.PersonalMinisterio);
-            return View(legalizacion.ToList());
+            var diploma = db.Diploma.Include(d => d.GrupoDiploma);
+            return View(diploma.ToList());
         }
 
-        // GET: Legalizacions/Details/5
+        // GET: Diploma/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Legalizacion legalizacion = db.Legalizacion.Find(id);
-            if (legalizacion == null)
+            Diploma diploma = db.Diploma.Find(id);
+            if (diploma == null)
             {
                 return HttpNotFound();
             }
-            return View(legalizacion);
+            return View(diploma);
         }
 
-        // GET: Legalizacions/Create
+        // GET: Diploma/Create
         public ActionResult Create()
         {
-            ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro");
+            ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre");
             return View();
         }
 
-        // POST: Legalizacions/Create
+        // POST: Diploma/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idLegalizacion,estado,descripcion,firmaDigital,fechaL,nroRegistroMins")] Legalizacion legalizacion)
+        public ActionResult Create([Bind(Include = "idDiploma,fecha,metadatos,codigohex,codigoLegalizacion,idListaEstudiante,idGrupoDiploma")] Diploma diploma)
         {
             if (ModelState.IsValid)
             {
-                db.Legalizacion.Add(legalizacion);
+                db.Diploma.Add(diploma);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro", legalizacion.nroRegistroMins);
-            return View(legalizacion);
+            ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre", diploma.idGrupoDiploma);
+            return View(diploma);
         }
 
-        // GET: Legalizacions/Edit/5
+        // GET: Diploma/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Legalizacion legalizacion = db.Legalizacion.Find(id);
-            if (legalizacion == null)
+            Diploma diploma = db.Diploma.Find(id);
+            if (diploma == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro", legalizacion.nroRegistroMins);
-            return View(legalizacion);
+            ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre", diploma.idGrupoDiploma);
+            return View(diploma);
         }
 
-        // POST: Legalizacions/Edit/5
+        // POST: Diploma/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idLegalizacion,estado,descripcion,firmaDigital,fechaL,nroRegistroMins")] Legalizacion legalizacion)
+        public ActionResult Edit([Bind(Include = "idDiploma,fecha,metadatos,codigohex,codigoLegalizacion,idListaEstudiante,idGrupoDiploma")] Diploma diploma)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(legalizacion).State = EntityState.Modified;
+                db.Entry(diploma).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro", legalizacion.nroRegistroMins);
-            return View(legalizacion);
+            ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre", diploma.idGrupoDiploma);
+            return View(diploma);
         }
 
-        // GET: Legalizacions/Delete/5
+        // GET: Diploma/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Legalizacion legalizacion = db.Legalizacion.Find(id);
-            if (legalizacion == null)
+            Diploma diploma = db.Diploma.Find(id);
+            if (diploma == null)
             {
                 return HttpNotFound();
             }
-            return View(legalizacion);
+            return View(diploma);
         }
 
-        // POST: Legalizacions/Delete/5
+        // POST: Diploma/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Legalizacion legalizacion = db.Legalizacion.Find(id);
-            db.Legalizacion.Remove(legalizacion);
+            Diploma diploma = db.Diploma.Find(id);
+            db.Diploma.Remove(diploma);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
