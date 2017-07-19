@@ -287,6 +287,7 @@
     <Content Include="Views\Estudiante\Details.cshtml" />
     <Content Include="Views\Estudiante\Edit.cshtml" />
     <Content Include="Views\Estudiante\Index.cshtml" />
+    <Content Include="Views\ListadeEstudiantes\ImportarLista.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,12 +5,17 @@
 }
 
 <h2>Index</h2>
+<h5>@ViewBag.Msg</h5>
 
 <p>
-    @Html.ActionLink("Crear Nuevo", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create") |
+    @Html.ActionLink("Importar Lista Estudiante", "ImportarLista")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayName("ID")
+        </th>
         <th>
             @Html.DisplayName("Nombre")
         </th>
@@ -43,6 +48,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idListaEstudiante)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.nombre)
         </td>

@@ -16,18 +16,18 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.firmaDigital, "Firma Digital", htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.firmaDigital, "Firma Digital", htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.firmaDigital, new { htmlAttributes = new { @disabled = "disabled", @class = "form-control" } })
+                @*@Html.EditorFor(model => model.firmaDigital, new { htmlAttributes = new { @disabled = "disabled", @class = "form-control" } })*@
                 @Html.HiddenFor(model => model.firmaDigital, new { @value = "" })
                 @Html.ValidationMessageFor(model => model.firmaDigital, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.fechaL, "Fecha Legalizacion",  htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.fechaL, "Fecha Legalizacion",  htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.fechaL, new { htmlAttributes = new { @disabled = "disabled", @class = "form-control" } })
+                @*@Html.EditorFor(model => model.fechaL, new { htmlAttributes = new { @disabled = "disabled", @class = "form-control" } })*@
                 @Html.HiddenFor(model => model.fechaL, new { @value = "19/07/2017" })
                 @Html.ValidationMessageFor(model => model.fechaL, "", new { @class = "text-danger" })
             </div>

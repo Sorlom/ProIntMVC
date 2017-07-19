@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MinisteriodeEducacionMVCApp.Models;
+using System.IO;
 
 namespace MinisteriodeEducacionMVCApp.Controllers
 {
@@ -18,6 +19,10 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         // GET: ListadeEstudiantes
         public ActionResult Index()
         {
+            if (TempData["DErr2"] != null)
+            {
+                ViewBag.Msg = TempData["DErr2"].ToString();
+            }
             var listadeEstudiantes = db.ListadeEstudiantes.Include(l => l.Diploma).Include(l => l.Gestion).Include(l => l.GrupoDiploma);
             return View(listadeEstudiantes.ToList());
         }
@@ -128,7 +133,29 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult ImportarLista()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ImportarLista(string Pato)
+        {
+            try
+            {
 
+             string ruta = Pato;
+             db.sp_ImportCSV(ruta);
+             TempData["DErr2"] = "Importado de Forma Correcta";
+             return RedirectToAction("Index");
+         }
+
+         catch (Exception e)
+         {
+             TempData["DErr2"] = "Error al Importar Lista Estudiantes";
+             return RedirectToAction("Index");
+         }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
