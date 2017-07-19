@@ -14,14 +14,19 @@ namespace MinisteriodeEducacionMVCApp.Controllers
     public class EstudianteController : Controller
     {
         private ProIntBDEntities db = new ProIntBDEntities();
-        [Authorize(Roles = "R1,R3,R2")]
+
+        [Authorize(Roles = "R1,R2,R3")]
         // GET: Estudiante
         public ActionResult Index()
         {
+            if (TempData["DErr"] != null)
+            {
+                ViewBag.Msg = TempData["DErr"].ToString();
+            }
             var estudiante = db.Estudiante.Include(e => e.ListadeEstudiantes).Include(e => e.Rol).Include(e => e.Persona);
             return View(estudiante.ToList());
         }
-        [Authorize(Roles = "R1,R3,R2")]
+        [Authorize(Roles = "R1,R2,R3")]
         // GET: Estudiante/Details/5
         public ActionResult Details(int? id)
         {
@@ -40,8 +45,8 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         // GET: Estudiante/Create
         public ActionResult Create()
         {
-            ViewBag.idListaEstudiante = new SelectList(db.ListadeEstudiantes, "idListaEstudiante", "idListaEstudiante");
-            ViewBag.idRol = new SelectList(db.Rol, "idRol", "nombre");
+            ViewBag.idListaEstudiante = new SelectList(db.ListadeEstudiantes, "idListaEstudiante", "correo");
+            ViewBag.idRol = new SelectList(db.Rol, "idRol", "nombre",3);
             ViewBag.CI = new SelectList(db.Persona, "CI", "CI");
             return View();
         }
@@ -67,17 +72,10 @@ namespace MinisteriodeEducacionMVCApp.Controllers
                 ViewBag.CI = new SelectList(db.Persona, "CI", "nombre", estudiante.CI);
                 return View(estudiante);
             }
-            catch (DBConcurrencyException de)
-            {
-                string error = de.ToString();
-                ViewBag.Msg = "No existe en una lista de Estudiantes: Correo Erroneo";
-                return View();
-            }
             catch (Exception e)
             {
-                string error = e.ToString();
-                ViewBag.Msg = "Datos Invalido";
-                return View();
+                TempData["DErr"] = "Error de Datos al Crear Estudiante";
+                return RedirectToAction("Index");
             }
         }
         [Authorize(Roles = "R1,R2")]
@@ -95,7 +93,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             }
             ViewBag.idListaEstudiante = new SelectList(db.ListadeEstudiantes, "idListaEstudiante", "nombre", estudiante.idListaEstudiante);
             ViewBag.idRol = new SelectList(db.Rol, "idRol", "nombre", estudiante.idRol);
-            ViewBag.CI = new SelectList(db.Persona, "CI", "nombre", estudiante.CI);
+            ViewBag.CI = new SelectList(db.Persona, "CI", "CI", estudiante.CI);
             return View(estudiante);
         }
         [Authorize(Roles = "R1,R2")]
@@ -114,7 +112,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             }
             ViewBag.idListaEstudiante = new SelectList(db.ListadeEstudiantes, "idListaEstudiante", "nombre", estudiante.idListaEstudiante);
             ViewBag.idRol = new SelectList(db.Rol, "idRol", "nombre", estudiante.idRol);
-            ViewBag.CI = new SelectList(db.Persona, "CI", "nombre", estudiante.CI);
+            ViewBag.CI = new SelectList(db.Persona, "CI", "CI", estudiante.CI);
             return View(estudiante);
         }
         [Authorize(Roles = "R1,R2")]

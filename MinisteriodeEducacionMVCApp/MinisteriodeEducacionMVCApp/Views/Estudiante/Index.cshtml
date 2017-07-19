@@ -5,29 +5,30 @@
 }
 
 <h2>Index</h2>
+<h5>@ViewBag.Msg</h5>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.loginEstudiante)
+            @Html.DisplayName("Login Estudiante")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.passEstudiante)
+            @Html.DisplayName("Pass Estudiante")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.correo)
+            @Html.DisplayName("Correo")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ListadeEstudiantes.promedio)
+            @Html.DisplayName("Nombre Estudiante")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Rol.nombre)
+            @Html.DisplayName("Rol")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Persona.CI)
+            @Html.DisplayName("CI")
         </th>
         <th></th>
     </tr>
@@ -44,7 +45,7 @@
             @Html.DisplayFor(modelItem => item.correo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ListadeEstudiantes.promedio)
+            @Html.DisplayFor(modelItem => item.ListadeEstudiantes.nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Rol.nombre)
@@ -53,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.Persona.CI)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.nroRegistroEst }) |
-            @Html.ActionLink("Details", "Details", new { id=item.nroRegistroEst }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.nroRegistroEst })
+            @Html.ActionLink("Editar", "Edit", new { id=item.nroRegistroEst }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.nroRegistroEst }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.nroRegistroEst })
         </td>
     </tr>
 }

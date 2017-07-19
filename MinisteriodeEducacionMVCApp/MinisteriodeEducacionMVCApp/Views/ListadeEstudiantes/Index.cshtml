@@ -7,36 +7,36 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            @Html.DisplayName("Nombre")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.apellidoPaterno)
+            @Html.DisplayName("Apellido Paterno")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.apellidoMaterno)
+            @Html.DisplayName("Apellido Materno")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.correo)
+            @Html.DisplayName("Correo")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.paralelo)
+            @Html.DisplayName("Paralelo")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.promedio)
+            @Html.DisplayName("Promedio")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Diploma.metadatos)
+            @Html.DisplayName("idDiploma")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gestion.nombrePromo)
+            @Html.DisplayName("Promo")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GrupoDiploma.nombre)
+            @Html.DisplayName("Grupo Nombre")
         </th>
         <th></th>
     </tr>
@@ -62,7 +62,7 @@
             @Html.DisplayFor(modelItem => item.promedio)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Diploma.metadatos)
+            @Html.DisplayFor(modelItem => item.Diploma.idDiploma)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Gestion.nombrePromo)
@@ -71,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.GrupoDiploma.nombre)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idListaEstudiante }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idListaEstudiante }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idListaEstudiante })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idListaEstudiante }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idListaEstudiante }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idListaEstudiante })
         </td>
     </tr>
 }

@@ -7,21 +7,21 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            @Html.DisplayName("Nombre")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.direccion)
+            @Html.DisplayName("Direccion")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.correo)
+            @Html.DisplayName("Correo")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PersonalMinisterio.loginMinistro)
+            @Html.DisplayName("Cuenta Ministro")
         </th>
         <th></th>
     </tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.PersonalMinisterio.loginMinistro)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idColegio }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idColegio }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idColegio })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idColegio }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idColegio }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idColegio })
         </td>
     </tr>
 }

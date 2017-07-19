@@ -40,7 +40,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         // GET: ListadeEstudiantes/Create
         public ActionResult Create()
         {
-            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos");
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "idDiploma");
             ViewBag.idGestion = new SelectList(db.Gestion, "idGestion", "nombrePromo");
             ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre");
             return View();
@@ -78,7 +78,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos", listadeEstudiantes.idDiploma);
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "idDiploma", listadeEstudiantes.idDiploma);
             ViewBag.idGestion = new SelectList(db.Gestion, "idGestion", "nombrePromo", listadeEstudiantes.idGestion);
             ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre", listadeEstudiantes.idGrupoDiploma);
             return View(listadeEstudiantes);
@@ -97,7 +97,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos", listadeEstudiantes.idDiploma);
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "idDiploma", listadeEstudiantes.idDiploma);
             ViewBag.idGestion = new SelectList(db.Gestion, "idGestion", "nombrePromo", listadeEstudiantes.idGestion);
             ViewBag.idGrupoDiploma = new SelectList(db.GrupoDiploma, "idGrupoDiploma", "nombre", listadeEstudiantes.idGrupoDiploma);
             return View(listadeEstudiantes);

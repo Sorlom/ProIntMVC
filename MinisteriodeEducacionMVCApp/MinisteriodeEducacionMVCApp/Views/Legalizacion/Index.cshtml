@@ -7,21 +7,21 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.firmaDigital)
+            @Html.DisplayName("Firma Digital")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fechaL)
+            @Html.DisplayName("Fecha Legalizacion")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Diploma.metadatos)
+            @Html.DisplayName("ID Diploma")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PersonalMinisterio.loginMinistro)
+            @Html.DisplayName("Cuenta Ministro")
         </th>
         <th></th>
     </tr>
@@ -35,15 +35,15 @@
             @Html.DisplayFor(modelItem => item.fechaL)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Diploma.metadatos)
+            @Html.DisplayFor(modelItem => item.Diploma.idDiploma)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PersonalMinisterio.loginMinistro)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idLegalizacion }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idLegalizacion }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idLegalizacion })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idLegalizacion }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idLegalizacion }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idLegalizacion })
         </td>
     </tr>
 }

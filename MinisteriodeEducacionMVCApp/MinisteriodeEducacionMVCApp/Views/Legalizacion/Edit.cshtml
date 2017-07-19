@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Editar</h2>
 
 
 @using (Html.BeginForm())
@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.idLegalizacion)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.firmaDigital, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.firmaDigital, "Firma Digital", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.firmaDigital, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.firmaDigital, "", new { @class = "text-danger" })
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.fechaL, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.fechaL, "Fecha Legalizacion", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.fechaL, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.fechaL, "", new { @class = "text-danger" })
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.nroRegistroMins, "nroRegistroMins", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.nroRegistroMins, "Cuenta Ministro", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("nroRegistroMins", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.nroRegistroMins, "", new { @class = "text-danger" })
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idDiploma, "idDiploma", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.idDiploma, "ID Diploma", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("idDiploma", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idDiploma, "", new { @class = "text-danger" })
@@ -51,14 +51,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Guardar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a la Lista", "Index")
 </div>
 
 @section Scripts {

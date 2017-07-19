@@ -40,7 +40,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         // GET: Colegio/Create
         public ActionResult Create()
         {
-            ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro");
+            ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro",1);
             return View();
         }
 

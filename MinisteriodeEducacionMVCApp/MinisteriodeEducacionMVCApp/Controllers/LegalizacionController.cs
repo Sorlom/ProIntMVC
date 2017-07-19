@@ -40,7 +40,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         // GET: Legalizacion/Create
         public ActionResult Create()
         {
-            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos");
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "idDiploma");
             ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro");
             return View();
         }
@@ -59,7 +59,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos", legalizacion.idDiploma);
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "idDiploma", legalizacion.idDiploma);
             ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro", legalizacion.nroRegistroMins);
             return View(legalizacion);
         }
@@ -76,7 +76,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos", legalizacion.idDiploma);
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "idDiploma", legalizacion.idDiploma);
             ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro", legalizacion.nroRegistroMins);
             return View(legalizacion);
         }
@@ -94,7 +94,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "metadatos", legalizacion.idDiploma);
+            ViewBag.idDiploma = new SelectList(db.Diploma, "idDiploma", "idDiploma", legalizacion.idDiploma);
             ViewBag.nroRegistroMins = new SelectList(db.PersonalMinisterio, "nroRegistroMins", "loginMinistro", legalizacion.nroRegistroMins);
             return View(legalizacion);
         }
