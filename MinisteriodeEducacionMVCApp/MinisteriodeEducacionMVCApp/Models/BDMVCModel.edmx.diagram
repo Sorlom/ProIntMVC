@@ -40,6 +40,11 @@
         <AssociationConnector Association="ProIntBDModel.PColegio_Rol" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ProIntBDModel.Vista_Perfil" Width="1.5" PointX="8.375" PointY="10.75" />
         <EntityTypeShape EntityType="ProIntBDModel.Vista_NoPerfil" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ProIntBDModel.VR1" Width="1.5" PointX="5.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ProIntBDModel.VR2" Width="1.5" PointX="10.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ProIntBDModel.VR3" Width="1.5" PointX="12.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ProIntBDModel.VR4" Width="1.5" PointX="14.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ProIntBDModel.VR5" Width="1.5" PointX="14.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

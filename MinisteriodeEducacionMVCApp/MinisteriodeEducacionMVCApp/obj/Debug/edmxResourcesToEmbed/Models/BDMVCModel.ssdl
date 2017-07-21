@@ -252,6 +252,104 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_Perfil' no tiene definida
     <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
     <Property Name="codigoLegalizacion" Type="varchar" MaxLength="800" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.VR1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VR1">
+    <Key>
+      <PropertyRef Name="idDiploma" />
+      <PropertyRef Name="codigohex" />
+      <PropertyRef Name="metadatos" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="NombreColegio" />
+      <PropertyRef Name="Año" />
+    </Key>
+    <Property Name="idDiploma" Type="int" Nullable="false" />
+    <Property Name="FechaDiploma" Type="varchar" MaxLength="10" />
+    <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="metadatos" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+    <Property Name="NombreColegio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Año" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.VR2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VR2">
+    <Key>
+      <PropertyRef Name="idDiploma" />
+      <PropertyRef Name="codigohex" />
+      <PropertyRef Name="metadatos" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="NombreColegio" />
+      <PropertyRef Name="Año" />
+    </Key>
+    <Property Name="idDiploma" Type="int" Nullable="false" />
+    <Property Name="FechaDiploma" Type="varchar" MaxLength="10" />
+    <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="codigolegalizacion" Type="varchar" MaxLength="800" />
+    <Property Name="metadatos" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="fechaL" Type="date" />
+    <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+    <Property Name="NombreColegio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Año" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.VR3' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VR3">
+    <Key>
+      <PropertyRef Name="idDiploma" />
+      <PropertyRef Name="codigohex" />
+      <PropertyRef Name="metadatos" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="NombreColegio" />
+      <PropertyRef Name="Año" />
+    </Key>
+    <Property Name="idDiploma" Type="int" Nullable="false" />
+    <Property Name="FechaDiploma" Type="varchar" MaxLength="10" />
+    <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="codigolegalizacion" Type="varchar" MaxLength="800" />
+    <Property Name="metadatos" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+    <Property Name="NombreColegio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Año" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.VR4' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VR4">
+    <Key>
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="direccion" />
+      <PropertyRef Name="correo" />
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="Rol" />
+    </Key>
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+    <Property Name="Rol" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.VR5' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="VR5">
+    <Key>
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="NombreColegio" />
+      <PropertyRef Name="Año" />
+      <PropertyRef Name="promedio" />
+    </Key>
+    <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+    <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NombreColegio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Año" Type="int" Nullable="false" />
+    <Property Name="promedio" Type="float" Nullable="false" />
+  </EntityType>
   <Association Name="FK__Colegio__nroRegi__1B0907CE">
     <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="1" />
     <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
@@ -484,6 +582,19 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_Perfil' no tiene definida
   <Function Name="sp_ImportCSV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="csvPath" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="sp_reporte1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NomCole" Type="varchar" Mode="In" />
+    <Parameter Name="Año" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_reporte2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MesEleg" Type="int" Mode="In" />
+    <Parameter Name="AñoEleg" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_reporte3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AñoEleg" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_reporte4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_reporte5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="ProIntBDModelStoreContainer">
     <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colegio" EntityType="Self.Colegio" Schema="dbo" store:Type="Tables" />
@@ -556,6 +667,63 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_Perfil' no tiene definida
     [Vista_Perfil].[codigohex] AS [codigohex], 
     [Vista_Perfil].[codigoLegalizacion] AS [codigoLegalizacion]
     FROM [dbo].[Vista_Perfil] AS [Vista_Perfil]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VR1" EntityType="Self.VR1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VR1].[idDiploma] AS [idDiploma], 
+    [VR1].[FechaDiploma] AS [FechaDiploma], 
+    [VR1].[codigohex] AS [codigohex], 
+    [VR1].[metadatos] AS [metadatos], 
+    [VR1].[nombrePromo] AS [nombrePromo], 
+    [VR1].[NombreCompleto] AS [NombreCompleto], 
+    [VR1].[NombreColegio] AS [NombreColegio], 
+    [VR1].[Año] AS [Año]
+    FROM [dbo].[VR1] AS [VR1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VR2" EntityType="Self.VR2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VR2].[idDiploma] AS [idDiploma], 
+    [VR2].[FechaDiploma] AS [FechaDiploma], 
+    [VR2].[codigohex] AS [codigohex], 
+    [VR2].[codigolegalizacion] AS [codigolegalizacion], 
+    [VR2].[metadatos] AS [metadatos], 
+    [VR2].[nombrePromo] AS [nombrePromo], 
+    [VR2].[fechaL] AS [fechaL], 
+    [VR2].[NombreCompleto] AS [NombreCompleto], 
+    [VR2].[NombreColegio] AS [NombreColegio], 
+    [VR2].[Año] AS [Año]
+    FROM [dbo].[VR2] AS [VR2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VR3" EntityType="Self.VR3" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VR3].[idDiploma] AS [idDiploma], 
+    [VR3].[FechaDiploma] AS [FechaDiploma], 
+    [VR3].[codigohex] AS [codigohex], 
+    [VR3].[codigolegalizacion] AS [codigolegalizacion], 
+    [VR3].[metadatos] AS [metadatos], 
+    [VR3].[nombrePromo] AS [nombrePromo], 
+    [VR3].[NombreCompleto] AS [NombreCompleto], 
+    [VR3].[NombreColegio] AS [NombreColegio], 
+    [VR3].[Año] AS [Año]
+    FROM [dbo].[VR3] AS [VR3]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VR4" EntityType="Self.VR4" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VR4].[nombre] AS [nombre], 
+    [VR4].[direccion] AS [direccion], 
+    [VR4].[correo] AS [correo], 
+    [VR4].[NombreCompleto] AS [NombreCompleto], 
+    [VR4].[Rol] AS [Rol]
+    FROM [dbo].[VR4] AS [VR4]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VR5" EntityType="Self.VR5" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VR5].[NombreCompleto] AS [NombreCompleto], 
+    [VR5].[nombrePromo] AS [nombrePromo], 
+    [VR5].[NombreColegio] AS [NombreColegio], 
+    [VR5].[Año] AS [Año], 
+    [VR5].[promedio] AS [promedio]
+    FROM [dbo].[VR5] AS [VR5]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__Colegio__nroRegi__1B0907CE" Association="Self.FK__Colegio__nroRegi__1B0907CE">
       <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />

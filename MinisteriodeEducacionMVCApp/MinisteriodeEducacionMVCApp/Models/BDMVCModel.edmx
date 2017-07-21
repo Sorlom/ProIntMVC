@@ -257,6 +257,104 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_Perfil' no tiene definida
           <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="codigoLegalizacion" Type="varchar" MaxLength="800" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.VR1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VR1">
+          <Key>
+            <PropertyRef Name="idDiploma" />
+            <PropertyRef Name="codigohex" />
+            <PropertyRef Name="metadatos" />
+            <PropertyRef Name="nombrePromo" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="NombreColegio" />
+            <PropertyRef Name="Año" />
+          </Key>
+          <Property Name="idDiploma" Type="int" Nullable="false" />
+          <Property Name="FechaDiploma" Type="varchar" MaxLength="10" />
+          <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="metadatos" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="NombreColegio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Año" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.VR2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VR2">
+          <Key>
+            <PropertyRef Name="idDiploma" />
+            <PropertyRef Name="codigohex" />
+            <PropertyRef Name="metadatos" />
+            <PropertyRef Name="nombrePromo" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="NombreColegio" />
+            <PropertyRef Name="Año" />
+          </Key>
+          <Property Name="idDiploma" Type="int" Nullable="false" />
+          <Property Name="FechaDiploma" Type="varchar" MaxLength="10" />
+          <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="codigolegalizacion" Type="varchar" MaxLength="800" />
+          <Property Name="metadatos" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fechaL" Type="date" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="NombreColegio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Año" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.VR3' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VR3">
+          <Key>
+            <PropertyRef Name="idDiploma" />
+            <PropertyRef Name="codigohex" />
+            <PropertyRef Name="metadatos" />
+            <PropertyRef Name="nombrePromo" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="NombreColegio" />
+            <PropertyRef Name="Año" />
+          </Key>
+          <Property Name="idDiploma" Type="int" Nullable="false" />
+          <Property Name="FechaDiploma" Type="varchar" MaxLength="10" />
+          <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="codigolegalizacion" Type="varchar" MaxLength="800" />
+          <Property Name="metadatos" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="NombreColegio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Año" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.VR4' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VR4">
+          <Key>
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="direccion" />
+            <PropertyRef Name="correo" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Rol" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="Rol" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.VR5' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VR5">
+          <Key>
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="nombrePromo" />
+            <PropertyRef Name="NombreColegio" />
+            <PropertyRef Name="Año" />
+            <PropertyRef Name="promedio" />
+          </Key>
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NombreColegio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Año" Type="int" Nullable="false" />
+          <Property Name="promedio" Type="float" Nullable="false" />
+        </EntityType>
         <Association Name="FK__Colegio__nroRegi__1B0907CE">
           <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="1" />
           <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
@@ -489,6 +587,19 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_Perfil' no tiene definida
         <Function Name="sp_ImportCSV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="csvPath" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_reporte1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NomCole" Type="varchar" Mode="In" />
+          <Parameter Name="Año" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_reporte2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MesEleg" Type="int" Mode="In" />
+          <Parameter Name="AñoEleg" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_reporte3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AñoEleg" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_reporte4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_reporte5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="ProIntBDModelStoreContainer">
           <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Colegio" EntityType="Self.Colegio" Schema="dbo" store:Type="Tables" />
@@ -561,6 +672,63 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_Perfil' no tiene definida
     [Vista_Perfil].[codigohex] AS [codigohex], 
     [Vista_Perfil].[codigoLegalizacion] AS [codigoLegalizacion]
     FROM [dbo].[Vista_Perfil] AS [Vista_Perfil]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VR1" EntityType="Self.VR1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VR1].[idDiploma] AS [idDiploma], 
+    [VR1].[FechaDiploma] AS [FechaDiploma], 
+    [VR1].[codigohex] AS [codigohex], 
+    [VR1].[metadatos] AS [metadatos], 
+    [VR1].[nombrePromo] AS [nombrePromo], 
+    [VR1].[NombreCompleto] AS [NombreCompleto], 
+    [VR1].[NombreColegio] AS [NombreColegio], 
+    [VR1].[Año] AS [Año]
+    FROM [dbo].[VR1] AS [VR1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VR2" EntityType="Self.VR2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VR2].[idDiploma] AS [idDiploma], 
+    [VR2].[FechaDiploma] AS [FechaDiploma], 
+    [VR2].[codigohex] AS [codigohex], 
+    [VR2].[codigolegalizacion] AS [codigolegalizacion], 
+    [VR2].[metadatos] AS [metadatos], 
+    [VR2].[nombrePromo] AS [nombrePromo], 
+    [VR2].[fechaL] AS [fechaL], 
+    [VR2].[NombreCompleto] AS [NombreCompleto], 
+    [VR2].[NombreColegio] AS [NombreColegio], 
+    [VR2].[Año] AS [Año]
+    FROM [dbo].[VR2] AS [VR2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VR3" EntityType="Self.VR3" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VR3].[idDiploma] AS [idDiploma], 
+    [VR3].[FechaDiploma] AS [FechaDiploma], 
+    [VR3].[codigohex] AS [codigohex], 
+    [VR3].[codigolegalizacion] AS [codigolegalizacion], 
+    [VR3].[metadatos] AS [metadatos], 
+    [VR3].[nombrePromo] AS [nombrePromo], 
+    [VR3].[NombreCompleto] AS [NombreCompleto], 
+    [VR3].[NombreColegio] AS [NombreColegio], 
+    [VR3].[Año] AS [Año]
+    FROM [dbo].[VR3] AS [VR3]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VR4" EntityType="Self.VR4" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VR4].[nombre] AS [nombre], 
+    [VR4].[direccion] AS [direccion], 
+    [VR4].[correo] AS [correo], 
+    [VR4].[NombreCompleto] AS [NombreCompleto], 
+    [VR4].[Rol] AS [Rol]
+    FROM [dbo].[VR4] AS [VR4]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VR5" EntityType="Self.VR5" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VR5].[NombreCompleto] AS [NombreCompleto], 
+    [VR5].[nombrePromo] AS [nombrePromo], 
+    [VR5].[NombreColegio] AS [NombreColegio], 
+    [VR5].[Año] AS [Año], 
+    [VR5].[promedio] AS [promedio]
+    FROM [dbo].[VR5] AS [VR5]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Colegio__nroRegi__1B0907CE" Association="Self.FK__Colegio__nroRegi__1B0907CE">
             <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />
@@ -1153,6 +1321,24 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_Perfil' no tiene definida
           <FunctionImport Name="sp_CrearDiploma" EntitySet="Diploma" ReturnType="Collection(ProIntBDModel.Diploma)" />
           <EntitySet Name="Vista_Perfil" EntityType="ProIntBDModel.Vista_Perfil" />
           <EntitySet Name="Vista_NoPerfil" EntityType="ProIntBDModel.Vista_NoPerfil" />
+          <EntitySet Name="VR1" EntityType="ProIntBDModel.VR1" />
+          <EntitySet Name="VR2" EntityType="ProIntBDModel.VR2" />
+          <EntitySet Name="VR3" EntityType="ProIntBDModel.VR3" />
+          <EntitySet Name="VR4" EntityType="ProIntBDModel.VR4" />
+          <EntitySet Name="VR5" EntityType="ProIntBDModel.VR5" />
+          <FunctionImport Name="sp_reporte1" ReturnType="Collection(ProIntBDModel.sp_reporte1_Result)">
+            <Parameter Name="NomCole" Mode="In" Type="String" />
+            <Parameter Name="Año" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_reporte2" ReturnType="Collection(ProIntBDModel.sp_reporte2_Result)">
+            <Parameter Name="MesEleg" Mode="In" Type="Int32" />
+            <Parameter Name="AñoEleg" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_reporte3" ReturnType="Collection(ProIntBDModel.sp_reporte3_Result)">
+            <Parameter Name="AñoEleg" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_reporte4" ReturnType="Collection(ProIntBDModel.sp_reporte4_Result)" />
+          <FunctionImport Name="sp_reporte5" ReturnType="Collection(ProIntBDModel.sp_reporte5_Result)" />
         </EntityContainer>
         <EntityType Name="Vista_Perfil">
           <Key>
@@ -1203,6 +1389,156 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_Perfil' no tiene definida
           <Property Name="año" Type="Int32" Nullable="false" />
           <Property Name="colegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="VR1">
+          <Key>
+            <PropertyRef Name="idDiploma" />
+            <PropertyRef Name="codigohex" />
+            <PropertyRef Name="metadatos" />
+            <PropertyRef Name="nombrePromo" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="NombreColegio" />
+            <PropertyRef Name="Año" />
+          </Key>
+          <Property Name="idDiploma" Type="Int32" Nullable="false" />
+          <Property Name="FechaDiploma" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="codigohex" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="metadatos" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="nombrePromo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="NombreColegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Año" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VR2">
+          <Key>
+            <PropertyRef Name="idDiploma" />
+            <PropertyRef Name="codigohex" />
+            <PropertyRef Name="metadatos" />
+            <PropertyRef Name="nombrePromo" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="NombreColegio" />
+            <PropertyRef Name="Año" />
+          </Key>
+          <Property Name="idDiploma" Type="Int32" Nullable="false" />
+          <Property Name="FechaDiploma" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="codigohex" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="codigolegalizacion" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="metadatos" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="nombrePromo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fechaL" Type="DateTime" Precision="0" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="NombreColegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Año" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VR3">
+          <Key>
+            <PropertyRef Name="idDiploma" />
+            <PropertyRef Name="codigohex" />
+            <PropertyRef Name="metadatos" />
+            <PropertyRef Name="nombrePromo" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="NombreColegio" />
+            <PropertyRef Name="Año" />
+          </Key>
+          <Property Name="idDiploma" Type="Int32" Nullable="false" />
+          <Property Name="FechaDiploma" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="codigohex" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="codigolegalizacion" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="metadatos" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="nombrePromo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="NombreColegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Año" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VR4">
+          <Key>
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="direccion" />
+            <PropertyRef Name="correo" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Rol" />
+          </Key>
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Rol" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VR5">
+          <Key>
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="nombrePromo" />
+            <PropertyRef Name="NombreColegio" />
+            <PropertyRef Name="Año" />
+            <PropertyRef Name="promedio" />
+          </Key>
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="nombrePromo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NombreColegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Año" Type="Int32" Nullable="false" />
+          <Property Name="promedio" Type="Double" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="sp_reporte1_Result">
+          <Property Type="String" Name="NombreColegioEleg" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="AñoEleg" Nullable="true" />
+          <Property Type="Int32" Name="Numero" Nullable="true" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="Int32" Name="idDiploma" Nullable="false" />
+          <Property Type="String" Name="FechaDiploma" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="codigohex" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="metadatos" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="nombrePromo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+          <Property Type="String" Name="NombreColegio" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Año" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_reporte2_Result">
+          <Property Type="Int32" Name="MesEleg" Nullable="true" />
+          <Property Type="Int32" Name="AñoEleg" Nullable="true" />
+          <Property Type="Int32" Name="Numero" Nullable="true" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="Int32" Name="idDiploma" Nullable="false" />
+          <Property Type="String" Name="FechaDiploma" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="codigohex" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="codigolegalizacion" Nullable="true" MaxLength="800" />
+          <Property Type="String" Name="metadatos" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="nombrePromo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+          <Property Type="String" Name="NombreColegio" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Año" Nullable="false" />
+          <Property Type="DateTime" Name="fechaL" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_reporte3_Result">
+          <Property Type="Int32" Name="AñoEleg" Nullable="true" />
+          <Property Type="Int32" Name="Numero" Nullable="true" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="Int32" Name="idDiploma" Nullable="false" />
+          <Property Type="String" Name="FechaDiploma" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="codigohex" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="codigolegalizacion" Nullable="true" MaxLength="800" />
+          <Property Type="String" Name="metadatos" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="nombrePromo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+          <Property Type="String" Name="NombreColegio" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Año" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_reporte4_Result">
+          <Property Type="Int32" Name="Numero" Nullable="true" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+          <Property Type="String" Name="Rol" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_reporte5_Result">
+          <Property Type="Int32" Name="Numero" Nullable="true" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+          <Property Type="String" Name="nombrePromo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="NombreColegio" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Año" Nullable="false" />
+          <Property Type="Double" Name="promedio" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1432,6 +1768,155 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_Perfil' no tiene definida
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="VR1">
+            <EntityTypeMapping TypeName="ProIntBDModel.VR1">
+              <MappingFragment StoreEntitySet="VR1">
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+                <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+                <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+                <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+                <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR2">
+            <EntityTypeMapping TypeName="ProIntBDModel.VR2">
+              <MappingFragment StoreEntitySet="VR2">
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="fechaL" ColumnName="fechaL" />
+                <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+                <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+                <ScalarProperty Name="codigolegalizacion" ColumnName="codigolegalizacion" />
+                <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+                <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+                <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR3">
+            <EntityTypeMapping TypeName="ProIntBDModel.VR3">
+              <MappingFragment StoreEntitySet="VR3">
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+                <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+                <ScalarProperty Name="codigolegalizacion" ColumnName="codigolegalizacion" />
+                <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+                <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+                <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR4">
+            <EntityTypeMapping TypeName="ProIntBDModel.VR4">
+              <MappingFragment StoreEntitySet="VR4">
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR5">
+            <EntityTypeMapping TypeName="ProIntBDModel.VR5">
+              <MappingFragment StoreEntitySet="VR5">
+                <ScalarProperty Name="promedio" ColumnName="promedio" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+                <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_reporte1" FunctionName="ProIntBDModel.Store.sp_reporte1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProIntBDModel.sp_reporte1_Result">
+                <ScalarProperty Name="NombreColegioEleg" ColumnName="NombreColegioEleg" />
+                <ScalarProperty Name="AñoEleg" ColumnName="AñoEleg" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+                <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+                <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+                <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+                <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_reporte2" FunctionName="ProIntBDModel.Store.sp_reporte2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProIntBDModel.sp_reporte2_Result">
+                <ScalarProperty Name="MesEleg" ColumnName="MesEleg" />
+                <ScalarProperty Name="AñoEleg" ColumnName="AñoEleg" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+                <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+                <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+                <ScalarProperty Name="codigolegalizacion" ColumnName="codigolegalizacion" />
+                <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+                <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="fechaL" ColumnName="fechaL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_reporte3" FunctionName="ProIntBDModel.Store.sp_reporte3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProIntBDModel.sp_reporte3_Result">
+                <ScalarProperty Name="AñoEleg" ColumnName="AñoEleg" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+                <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+                <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+                <ScalarProperty Name="codigolegalizacion" ColumnName="codigolegalizacion" />
+                <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+                <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_reporte4" FunctionName="ProIntBDModel.Store.sp_reporte4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProIntBDModel.sp_reporte4_Result">
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_reporte5" FunctionName="ProIntBDModel.Store.sp_reporte5">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProIntBDModel.sp_reporte5_Result">
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+                <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="promedio" ColumnName="promedio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

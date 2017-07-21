@@ -224,5 +224,154 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VR1">
+      <EntityTypeMapping TypeName="ProIntBDModel.VR1">
+        <MappingFragment StoreEntitySet="VR1">
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+          <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+          <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+          <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+          <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VR2">
+      <EntityTypeMapping TypeName="ProIntBDModel.VR2">
+        <MappingFragment StoreEntitySet="VR2">
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="fechaL" ColumnName="fechaL" />
+          <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+          <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+          <ScalarProperty Name="codigolegalizacion" ColumnName="codigolegalizacion" />
+          <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+          <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+          <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VR3">
+      <EntityTypeMapping TypeName="ProIntBDModel.VR3">
+        <MappingFragment StoreEntitySet="VR3">
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+          <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+          <ScalarProperty Name="codigolegalizacion" ColumnName="codigolegalizacion" />
+          <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+          <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+          <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VR4">
+      <EntityTypeMapping TypeName="ProIntBDModel.VR4">
+        <MappingFragment StoreEntitySet="VR4">
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VR5">
+      <EntityTypeMapping TypeName="ProIntBDModel.VR5">
+        <MappingFragment StoreEntitySet="VR5">
+          <ScalarProperty Name="promedio" ColumnName="promedio" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+          <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_reporte1" FunctionName="ProIntBDModel.Store.sp_reporte1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProIntBDModel.sp_reporte1_Result">
+          <ScalarProperty Name="NombreColegioEleg" ColumnName="NombreColegioEleg" />
+          <ScalarProperty Name="AñoEleg" ColumnName="AñoEleg" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+          <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+          <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+          <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+          <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_reporte2" FunctionName="ProIntBDModel.Store.sp_reporte2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProIntBDModel.sp_reporte2_Result">
+          <ScalarProperty Name="MesEleg" ColumnName="MesEleg" />
+          <ScalarProperty Name="AñoEleg" ColumnName="AñoEleg" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+          <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+          <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+          <ScalarProperty Name="codigolegalizacion" ColumnName="codigolegalizacion" />
+          <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+          <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="fechaL" ColumnName="fechaL" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_reporte3" FunctionName="ProIntBDModel.Store.sp_reporte3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProIntBDModel.sp_reporte3_Result">
+          <ScalarProperty Name="AñoEleg" ColumnName="AñoEleg" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="idDiploma" ColumnName="idDiploma" />
+          <ScalarProperty Name="FechaDiploma" ColumnName="FechaDiploma" />
+          <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+          <ScalarProperty Name="codigolegalizacion" ColumnName="codigolegalizacion" />
+          <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+          <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_reporte4" FunctionName="ProIntBDModel.Store.sp_reporte4">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProIntBDModel.sp_reporte4_Result">
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_reporte5" FunctionName="ProIntBDModel.Store.sp_reporte5">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProIntBDModel.sp_reporte5_Result">
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+          <ScalarProperty Name="NombreColegio" ColumnName="NombreColegio" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="promedio" ColumnName="promedio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

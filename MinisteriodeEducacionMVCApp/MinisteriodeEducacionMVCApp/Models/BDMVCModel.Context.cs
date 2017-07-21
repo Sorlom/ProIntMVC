@@ -44,6 +44,11 @@ namespace MinisteriodeEducacionMVCApp.Models
         public virtual DbSet<Vista_PC_Rol> Vista_PC_Rol { get; set; }
         public virtual DbSet<Vista_Perfil> Vista_Perfil { get; set; }
         public virtual DbSet<Vista_NoPerfil> Vista_NoPerfil { get; set; }
+        public virtual DbSet<VR1> VR1 { get; set; }
+        public virtual DbSet<VR2> VR2 { get; set; }
+        public virtual DbSet<VR3> VR3 { get; set; }
+        public virtual DbSet<VR4> VR4 { get; set; }
+        public virtual DbSet<VR5> VR5 { get; set; }
     
         public virtual ObjectResult<Diploma> sp_CrearDiplomas()
         {
@@ -72,6 +77,51 @@ namespace MinisteriodeEducacionMVCApp.Models
         public virtual ObjectResult<Diploma> sp_CrearDiploma(MergeOption mergeOption)
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Diploma>("sp_CrearDiploma", mergeOption);
+        }
+    
+        public virtual ObjectResult<sp_reporte1_Result> sp_reporte1(string nomCole, Nullable<int> año)
+        {
+            var nomColeParameter = nomCole != null ?
+                new ObjectParameter("NomCole", nomCole) :
+                new ObjectParameter("NomCole", typeof(string));
+    
+            var añoParameter = año.HasValue ?
+                new ObjectParameter("Año", año) :
+                new ObjectParameter("Año", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_reporte1_Result>("sp_reporte1", nomColeParameter, añoParameter);
+        }
+    
+        public virtual ObjectResult<sp_reporte2_Result> sp_reporte2(Nullable<int> mesEleg, Nullable<int> añoEleg)
+        {
+            var mesElegParameter = mesEleg.HasValue ?
+                new ObjectParameter("MesEleg", mesEleg) :
+                new ObjectParameter("MesEleg", typeof(int));
+    
+            var añoElegParameter = añoEleg.HasValue ?
+                new ObjectParameter("AñoEleg", añoEleg) :
+                new ObjectParameter("AñoEleg", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_reporte2_Result>("sp_reporte2", mesElegParameter, añoElegParameter);
+        }
+    
+        public virtual ObjectResult<sp_reporte3_Result> sp_reporte3(Nullable<int> añoEleg)
+        {
+            var añoElegParameter = añoEleg.HasValue ?
+                new ObjectParameter("AñoEleg", añoEleg) :
+                new ObjectParameter("AñoEleg", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_reporte3_Result>("sp_reporte3", añoElegParameter);
+        }
+    
+        public virtual ObjectResult<sp_reporte4_Result> sp_reporte4()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_reporte4_Result>("sp_reporte4");
+        }
+    
+        public virtual ObjectResult<sp_reporte5_Result> sp_reporte5()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_reporte5_Result>("sp_reporte5");
         }
     }
 }

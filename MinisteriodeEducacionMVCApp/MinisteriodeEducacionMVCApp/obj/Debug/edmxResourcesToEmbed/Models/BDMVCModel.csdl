@@ -510,6 +510,24 @@
     <FunctionImport Name="sp_CrearDiploma" EntitySet="Diploma" ReturnType="Collection(ProIntBDModel.Diploma)" />
     <EntitySet Name="Vista_Perfil" EntityType="ProIntBDModel.Vista_Perfil" />
     <EntitySet Name="Vista_NoPerfil" EntityType="ProIntBDModel.Vista_NoPerfil" />
+    <EntitySet Name="VR1" EntityType="ProIntBDModel.VR1" />
+    <EntitySet Name="VR2" EntityType="ProIntBDModel.VR2" />
+    <EntitySet Name="VR3" EntityType="ProIntBDModel.VR3" />
+    <EntitySet Name="VR4" EntityType="ProIntBDModel.VR4" />
+    <EntitySet Name="VR5" EntityType="ProIntBDModel.VR5" />
+    <FunctionImport Name="sp_reporte1" ReturnType="Collection(ProIntBDModel.sp_reporte1_Result)">
+      <Parameter Name="NomCole" Mode="In" Type="String" />
+      <Parameter Name="Año" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_reporte2" ReturnType="Collection(ProIntBDModel.sp_reporte2_Result)">
+      <Parameter Name="MesEleg" Mode="In" Type="Int32" />
+      <Parameter Name="AñoEleg" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_reporte3" ReturnType="Collection(ProIntBDModel.sp_reporte3_Result)">
+      <Parameter Name="AñoEleg" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_reporte4" ReturnType="Collection(ProIntBDModel.sp_reporte4_Result)" />
+    <FunctionImport Name="sp_reporte5" ReturnType="Collection(ProIntBDModel.sp_reporte5_Result)" />
   </EntityContainer>
   <EntityType Name="Vista_Perfil">
     <Key>
@@ -560,4 +578,154 @@
     <Property Name="año" Type="Int32" Nullable="false" />
     <Property Name="colegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="VR1">
+    <Key>
+      <PropertyRef Name="idDiploma" />
+      <PropertyRef Name="codigohex" />
+      <PropertyRef Name="metadatos" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="NombreColegio" />
+      <PropertyRef Name="Año" />
+    </Key>
+    <Property Name="idDiploma" Type="Int32" Nullable="false" />
+    <Property Name="FechaDiploma" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="codigohex" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="metadatos" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="nombrePromo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+    <Property Name="NombreColegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Año" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VR2">
+    <Key>
+      <PropertyRef Name="idDiploma" />
+      <PropertyRef Name="codigohex" />
+      <PropertyRef Name="metadatos" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="NombreColegio" />
+      <PropertyRef Name="Año" />
+    </Key>
+    <Property Name="idDiploma" Type="Int32" Nullable="false" />
+    <Property Name="FechaDiploma" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="codigohex" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="codigolegalizacion" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="metadatos" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="nombrePromo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaL" Type="DateTime" Precision="0" />
+    <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+    <Property Name="NombreColegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Año" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VR3">
+    <Key>
+      <PropertyRef Name="idDiploma" />
+      <PropertyRef Name="codigohex" />
+      <PropertyRef Name="metadatos" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="NombreColegio" />
+      <PropertyRef Name="Año" />
+    </Key>
+    <Property Name="idDiploma" Type="Int32" Nullable="false" />
+    <Property Name="FechaDiploma" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="codigohex" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="codigolegalizacion" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="metadatos" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="nombrePromo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+    <Property Name="NombreColegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Año" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VR4">
+    <Key>
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="direccion" />
+      <PropertyRef Name="correo" />
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="Rol" />
+    </Key>
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+    <Property Name="Rol" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VR5">
+    <Key>
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="NombreColegio" />
+      <PropertyRef Name="Año" />
+      <PropertyRef Name="promedio" />
+    </Key>
+    <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+    <Property Name="nombrePromo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NombreColegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Año" Type="Int32" Nullable="false" />
+    <Property Name="promedio" Type="Double" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="sp_reporte1_Result">
+    <Property Type="String" Name="NombreColegioEleg" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AñoEleg" Nullable="true" />
+    <Property Type="Int32" Name="Numero" Nullable="true" />
+    <Property Type="Int32" Name="Cantidad" Nullable="true" />
+    <Property Type="Int32" Name="idDiploma" Nullable="false" />
+    <Property Type="String" Name="FechaDiploma" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="codigohex" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="metadatos" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="nombrePromo" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+    <Property Type="String" Name="NombreColegio" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Año" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_reporte2_Result">
+    <Property Type="Int32" Name="MesEleg" Nullable="true" />
+    <Property Type="Int32" Name="AñoEleg" Nullable="true" />
+    <Property Type="Int32" Name="Numero" Nullable="true" />
+    <Property Type="Int32" Name="Cantidad" Nullable="true" />
+    <Property Type="Int32" Name="idDiploma" Nullable="false" />
+    <Property Type="String" Name="FechaDiploma" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="codigohex" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="codigolegalizacion" Nullable="true" MaxLength="800" />
+    <Property Type="String" Name="metadatos" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="nombrePromo" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+    <Property Type="String" Name="NombreColegio" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Año" Nullable="false" />
+    <Property Type="DateTime" Name="fechaL" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_reporte3_Result">
+    <Property Type="Int32" Name="AñoEleg" Nullable="true" />
+    <Property Type="Int32" Name="Numero" Nullable="true" />
+    <Property Type="Int32" Name="Cantidad" Nullable="true" />
+    <Property Type="Int32" Name="idDiploma" Nullable="false" />
+    <Property Type="String" Name="FechaDiploma" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="codigohex" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="codigolegalizacion" Nullable="true" MaxLength="800" />
+    <Property Type="String" Name="metadatos" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="nombrePromo" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+    <Property Type="String" Name="NombreColegio" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Año" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_reporte4_Result">
+    <Property Type="Int32" Name="Numero" Nullable="true" />
+    <Property Type="Int32" Name="Cantidad" Nullable="true" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="direccion" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="correo" Nullable="false" MaxLength="80" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+    <Property Type="String" Name="Rol" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="sp_reporte5_Result">
+    <Property Type="Int32" Name="Numero" Nullable="true" />
+    <Property Type="Int32" Name="Cantidad" Nullable="true" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+    <Property Type="String" Name="nombrePromo" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="NombreColegio" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Año" Nullable="false" />
+    <Property Type="Double" Name="promedio" Nullable="false" />
+  </ComplexType>
 </Schema>
