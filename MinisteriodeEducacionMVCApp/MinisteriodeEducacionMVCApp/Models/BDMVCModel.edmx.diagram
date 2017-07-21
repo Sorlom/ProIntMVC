@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0313f257ba0944689b4986fe978b8617" Name="Diagram1">
-        <EntityTypeShape EntityType="ProIntBDModel.Bitacora" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Colegio" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Diploma" Width="1.5" PointX="15" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Estudiante" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Gestion" Width="1.5" PointX="10.5" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.GrupoDiploma" Width="1.5" PointX="12.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Legalizacion" Width="1.5" PointX="17.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.ListadeEstudiantes" Width="1.5" PointX="12.75" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Persona" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.PersonalColegio" Width="1.5" PointX="10.5" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.PersonalMinisterio" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Privilegios" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Rol" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Vista_ListaE" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProIntBDModel.Vista_PC_Rol" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="0313f257ba0944689b4986fe978b8617" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="ProIntBDModel.Bitacora" Width="1.5" PointX="22.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Colegio" Width="1.5" PointX="7.375" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Diploma" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Estudiante" Width="1.5" PointX="6.375" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Gestion" Width="1.5" PointX="9.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.GrupoDiploma" Width="1.5" PointX="6.375" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Legalizacion" Width="1.5" PointX="9.375" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.ListadeEstudiantes" Width="1.5" PointX="12.125" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Persona" Width="1.5" PointX="1.625" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.PersonalColegio" Width="1.5" PointX="4.375" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.PersonalMinisterio" Width="1.5" PointX="4.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Privilegios" Width="1.5" PointX="2.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Rol" Width="1.5" PointX="2.375" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Vista_ListaE" Width="1.5" PointX="25.125" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProIntBDModel.Vista_PC_Rol" Width="1.5" PointX="25.375" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="ProIntBDModel.FK__Colegio__nroRegi__1B0907CE" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__Gestion__idColeg__25869641" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__PersonalC__idCol__1FCDBCEB" ManuallyRouted="false" />
@@ -38,13 +38,13 @@
         <AssociationConnector Association="ProIntBDModel.FK__PersonalM__idRol__173876EA" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__Privilegi__idRol__22AA2996" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.PColegio_Rol" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ProIntBDModel.Vista_Perfil" Width="1.5" PointX="8.375" PointY="10.75" />
-        <EntityTypeShape EntityType="ProIntBDModel.Vista_NoPerfil" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="ProIntBDModel.VR1" Width="1.5" PointX="5.375" PointY="11.75" />
-        <EntityTypeShape EntityType="ProIntBDModel.VR2" Width="1.5" PointX="10.375" PointY="11.75" />
-        <EntityTypeShape EntityType="ProIntBDModel.VR3" Width="1.5" PointX="12.375" PointY="11.75" />
-        <EntityTypeShape EntityType="ProIntBDModel.VR4" Width="1.5" PointX="14.375" PointY="11.75" />
-        <EntityTypeShape EntityType="ProIntBDModel.VR5" Width="1.5" PointX="14.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ProIntBDModel.Vista_Perfil" Width="1.5" PointX="18.375" PointY="12.875" />
+        <EntityTypeShape EntityType="ProIntBDModel.Vista_NoPerfil" Width="1.5" PointX="20.625" PointY="9.625" />
+        <EntityTypeShape EntityType="ProIntBDModel.VR1" Width="1.5" PointX="23" PointY="7.5" />
+        <EntityTypeShape EntityType="ProIntBDModel.VR2" Width="1.5" PointX="20.375" PointY="13.875" />
+        <EntityTypeShape EntityType="ProIntBDModel.VR3" Width="1.5" PointX="22.375" PointY="13.875" />
+        <EntityTypeShape EntityType="ProIntBDModel.VR4" Width="1.5" PointX="24.375" PointY="13.875" />
+        <EntityTypeShape EntityType="ProIntBDModel.VR5" Width="1.5" PointX="22.625" PointY="10.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
