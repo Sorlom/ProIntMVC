@@ -326,7 +326,7 @@ EXEC('BULK INSERT Temp_ListadeEstudiantes FROM '''+ @csvPath +''' WITH ( FIRSTRO
 end
 
 execute sp_ImportCSV 'D:\ListaEstudiantes.csv'
-select * from Vista_ListaE
+
 ---------------------------------------------------------------------------------------------------------------
 Create procedure sp_CrearDiplomas
 as
