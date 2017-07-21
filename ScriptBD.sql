@@ -210,7 +210,28 @@ Create View Vista_ListaE
 as
 select *
 from ListadeEstudiantes
-
+------------------------------------------------------------------------------------
+Create View Vista_Perfil
+as
+select LE.idListaEstudiante as id, CONCAT(p.nombre,' ',p.apellidoPaterno,' ',p.apellidoMaterno) as nombreCompleto, telefono, p.direccion, p.CI,
+		paralelo, promedio, G.nombrePromo, G.Año as año, fecha, C.nombre as colegio, metadatos, codigohex, codigoLegalizacion
+				from Estudiante E
+				inner join Persona p on p.CI = E.CI
+				inner join ListadeEstudiantes LE on LE.idListaEstudiante = E.idListaEstudiante
+				full outer join Diploma D on D.idDiploma = LE.idDiploma
+				inner join Gestion G on G.idGestion = LE.idGestion
+				inner join Colegio C on C.idColegio = G.idColegio
+--------------------------------------------------------------------------------------------------------------------
+Create View Vista_NoPerfil
+as
+select LE.idListaEstudiante as id, CONCAT(p.nombre,' ',p.apellidoPaterno,' ',p.apellidoMaterno) as nombreCompleto, telefono, p.direccion, p.CI,
+		paralelo, promedio, G.nombrePromo, G.Año as año, C.nombre as colegio
+				from Estudiante E
+				inner join Persona p on p.CI = E.CI
+				inner join ListadeEstudiantes LE on LE.idListaEstudiante = E.idListaEstudiante
+				full outer join Diploma D on D.idDiploma = LE.idDiploma
+				inner join Gestion G on G.idGestion = LE.idGestion
+				inner join Colegio C on C.idColegio = G.idColegio
 ------------------------------------------TRIGGERS-------------------------------------------------------
 
 ------------------------------------------------------------------------------------------------------------------------
@@ -393,7 +414,285 @@ update  PersonalColegio set passPColegio = 'aeabd5b1570d06a00c19d0d7e38d6f4a' wh
 
 update  PersonalMinisterio  set passMinistro = '1c51a52b9d45a32b5779f7a020950093' where nroRegistroMins = 1
 update  PersonalMinisterio  set passMinistro = 'e3afed0047b08059d0fada10f400c1e5' where nroRegistroMins = 2
+-------------------------------------------------------------------Reportes---------------------------------------------
+create view VR1
+as
+select D.idDiploma, CONVERT(VARCHAR(10), D.fecha, 103) as FechaDiploma, D.codigohex, D.metadatos, G.nombrePromo, 
+					CONCAT(le.nombre,' ',le.apellidoPaterno,' ',le.apellidoMaterno) as NombreCompleto, C.nombre as NombreColegio, G.año as Año  
+		from Diploma D
+		inner join ListadeEstudiantes le on le.idDiploma = D.idDiploma
+		inner join Gestion G on G.idGestion = le.idGestion
+		inner join Colegio C on C.idcolegio = G.idColegio
+		--Where C.nombre = 'DonBosco' and G.año = '2012'
 
-update ListadeEstudiantes set idDiploma = null where idListaEstudiante = 28
+create procedure sp_reporte1
+@NomCole varchar(50),
+@Año as int
+as
+begin
+declare @idDip as int
+declare @Fec as varchar(200)
+declare @CodHex as varchar(200)
+declare @Meta as varchar(200)
+declare @nomPro as varchar(200)
+declare @nomCom as varchar(200)
+declare @nomCol as varchar(200)
+declare @AñoG as int
+declare @Row as int
+declare @Nro as int
 
-select * from Estudiante
+set @Nro = 0
+set @Row = 0
+
+declare CurRep1 cursor for 
+select idDiploma, FechaDiploma, codigohex, metadatos, nombrePromo, NombreCompleto, NombreColegio, Año
+from VR1
+where NombreColegio like '%'+@NomCole+'%' and Año = @Año
+
+open CurRep1
+
+fetch next from CurRep1 into @idDip, @Fec, @CodHex, @Meta, @nomPro, @nomCom, @nomCol, @AñoG
+while (@@FETCH_STATUS = 0)
+begin
+
+set @Nro = @Nro +1
+set @Row = @Row + 1
+
+fetch next from CurRep1 into @idDip, @Fec, @CodHex, @Meta, @nomPro, @nomCom, @nomCol, @AñoG
+
+end
+
+close CurRep1
+deallocate CurRep1
+
+select @NomCole as NombreColegioEleg, @Año as AñoEleg, @Nro as Numero, @Row as Cantidad, idDiploma, FechaDiploma, codigohex, metadatos, nombrePromo, NombreCompleto, NombreColegio, Año
+from VR1
+where NombreColegio like '%'+@NomCole+'%' and Año = @Año
+
+end
+
+execute sp_reporte1 'DonBosco',2012
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create view VR2
+as
+select D.idDiploma, CONVERT(VARCHAR(10), D.fecha, 103) as FechaDiploma, D.codigohex, D.codigolegalizacion, D.metadatos, G.nombrePromo, L.fechaL,
+					CONCAT(le.nombre,' ',le.apellidoPaterno,' ',le.apellidoMaterno) as NombreCompleto, C.nombre as NombreColegio, G.año as Año  
+		from Diploma D
+		inner join ListadeEstudiantes le on le.idDiploma = D.idDiploma
+		inner join Gestion G on G.idGestion = le.idGestion
+		inner join Colegio C on C.idcolegio = G.idColegio
+		inner join Legalizacion L on L.idDiploma = D.idDiploma
+		--Where fechaL 
+
+create procedure sp_reporte2
+@MesEleg int,
+@AñoEleg as int
+as
+begin
+declare @idDip as int
+declare @Fec as varchar(200)
+declare @CodHex as varchar(200)
+declare @CodLeg as varchar(200)
+declare @Meta as varchar(200)
+declare @nomPro as varchar(200)
+declare @nomCom as varchar(200)
+declare @nomCol as varchar(200)
+declare @AñoG as int
+declare @AñoL as Date
+declare @Row as int
+declare @Nro as int
+
+set @Nro = 0
+set @Row = 0
+
+declare CurRep2 cursor for 
+select idDiploma, FechaDiploma, codigohex, codigolegalizacion, metadatos, nombrePromo, NombreCompleto, NombreColegio, Año, fechaL
+from VR2
+Where YEAR(fechaL)= @AñoEleg and MONTH(fechaL) = @MesEleg
+
+open CurRep2
+
+fetch next from CurRep2 into @idDip, @Fec, @CodHex, @CodLeg, @Meta, @nomPro, @nomCom, @nomCol, @AñoG, @AñoL
+while (@@FETCH_STATUS = 0)
+begin
+
+set @Nro = @Nro +1
+set @Row = @Row + 1
+
+fetch next from CurRep2 into @idDip, @Fec, @CodHex, @CodLeg, @Meta, @nomPro, @nomCom, @nomCol, @AñoG, @AñoL
+
+end
+
+close CurRep2
+deallocate CurRep2
+
+select @MesEleg as MesEleg, @AñoEleg as AñoEleg, @Nro as Numero, @Row as Cantidad, idDiploma, FechaDiploma, codigohex, codigolegalizacion, metadatos, nombrePromo, NombreCompleto, NombreColegio, Año, fechaL
+from VR2
+Where YEAR(fechaL)= @AñoEleg and MONTH(fechaL) = @MesEleg
+
+end
+
+execute sp_reporte2 7,2017
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create view VR3
+as
+select D.idDiploma, CONVERT(VARCHAR(10), D.fecha, 103) as FechaDiploma, D.codigohex, D.codigolegalizacion, D.metadatos, G.nombrePromo,
+					CONCAT(le.nombre,' ',le.apellidoPaterno,' ',le.apellidoMaterno) as NombreCompleto, C.nombre as NombreColegio, G.año as Año  
+		from Diploma D
+		inner join ListadeEstudiantes le on le.idDiploma = D.idDiploma
+		inner join Gestion G on G.idGestion = le.idGestion
+		inner join Colegio C on C.idcolegio = G.idColegio
+		--Where G.Año = 2015 and codigolegalizacion is null
+
+create procedure sp_reporte3
+@AñoEleg as int
+as
+begin
+declare @idDip as int
+declare @Fec as varchar(200)
+declare @CodHex as varchar(200)
+declare @CodLeg as varchar(200)
+declare @Meta as varchar(200)
+declare @nomPro as varchar(200)
+declare @nomCom as varchar(200)
+declare @nomCol as varchar(200)
+declare @AñoG as int
+declare @Row as int
+declare @Nro as int
+
+set @Nro = 0
+set @Row = 0
+
+declare CurRep3 cursor for 
+select idDiploma, FechaDiploma, codigohex, codigolegalizacion, metadatos, nombrePromo, NombreCompleto, NombreColegio, Año
+from VR3
+where Año = @AñoEleg and codigolegalizacion is null
+
+open CurRep3
+
+fetch next from CurRep3 into @idDip, @Fec, @CodHex, @CodLeg, @Meta, @nomPro, @nomCom, @nomCol, @AñoG
+while (@@FETCH_STATUS = 0)
+begin
+
+set @Nro = @Nro +1
+set @Row = @Row + 1
+
+fetch next from CurRep3 into @idDip, @Fec, @CodHex, @CodLeg, @Meta, @nomPro, @nomCom, @nomCol, @AñoG
+
+end
+
+close CurRep3
+deallocate CurRep3
+
+select  @AñoEleg as AñoEleg, @Nro as Numero, @Row as Cantidad, idDiploma, FechaDiploma, codigohex, codigolegalizacion, metadatos, nombrePromo, NombreCompleto, NombreColegio, Año
+from VR3
+where Año = @AñoEleg and codigolegalizacion is null
+
+end
+
+
+execute sp_reporte3 2015
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create view VR4
+as
+select C.nombre, C.direccion, C.correo, CONCAT(p.nombre,' ',p.apellidoPaterno,' ',p.apellidoMaterno) as NombreCompleto, 
+				R.nombre as Rol
+				from Colegio C
+						inner join PersonalColegio PC on PC.idColegio = C.idColegio
+						inner join Persona P on P.CI = PC.CI
+						inner join PColegio_Rol PCR on PCR.nroRegistroPColegio = PC.nroRegistroPColegio
+						inner join Rol R on R.idRol = PCR.idRol
+
+		--Where C.nombre = 'DonBosco' and G.año = '2012'
+
+create procedure sp_reporte4
+as
+begin
+declare @Nom as varchar(100)
+declare @Dir as varchar(100)
+declare @Correo as varchar(100)
+declare @nomCom as varchar(100)
+declare @Rol as varchar(100)
+declare @Row as int
+declare @Nro as int
+
+set @Nro = 0
+set @Row = 0
+
+declare CurRep4 cursor for 
+select nombre,direccion,correo,NombreCompleto,Rol
+from VR4
+
+open CurRep4
+
+fetch next from CurRep4 into @Nom, @Dir, @Correo, @nomCom, @Rol
+while (@@FETCH_STATUS = 0)
+begin
+
+set @Nro = @Nro +1
+set @Row = @Row + 1
+
+fetch next from CurRep4 into @Nom, @Dir, @Correo, @nomCom, @Rol
+end
+
+close CurRep4
+deallocate CurRep4
+
+select @Nro as Numero, @Row as Cantidad, nombre,direccion,correo,NombreCompleto,Rol
+from VR4
+
+end
+
+execute sp_reporte4
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create view VR5
+as
+select CONCAT(le.nombre,' ',le.apellidoPaterno,' ',le.apellidoMaterno) as NombreCompleto, G.nombrePromo, C.nombre as NombreColegio, G.año as Año, promedio 
+		from  ListadeEstudiantes le 
+		inner join Gestion G on G.idGestion = le.idGestion
+		inner join Colegio C on C.idcolegio = G.idColegio
+		where idDiploma is null
+
+create procedure sp_reporte5
+
+as
+begin
+declare @nomCom as varchar(200)
+declare @nomPro as varchar(200)
+declare @nomCol as varchar(200)
+declare @AñoG as int
+declare @Promedio as int
+declare @Row as int
+declare @Nro as int
+
+set @Nro = 0
+set @Row = 0
+
+declare CurRep5 cursor for 
+select NombreCompleto,nombrePromo,NombreColegio,Año,promedio
+from VR5
+
+open CurRep5
+
+fetch next from CurRep5 into @nomCom, @nomPro, @nomCol, @AñoG, @Promedio
+while (@@FETCH_STATUS = 0)
+begin
+
+set @Nro = @Nro +1
+set @Row = @Row + 1
+
+fetch next from CurRep5 into @nomCom, @nomPro, @nomCol, @AñoG, @Promedio
+
+end
+
+close CurRep5
+deallocate CurRep5
+
+select @Nro as Numero, @Row as Cantidad, NombreCompleto,nombrePromo,NombreColegio,Año,promedio
+from VR5
+
+end
+
+execute sp_reporte5
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

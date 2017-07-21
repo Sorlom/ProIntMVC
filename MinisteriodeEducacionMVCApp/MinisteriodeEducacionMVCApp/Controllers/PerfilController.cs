@@ -5,11 +5,15 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using System.Web.Mvc;
 using MinisteriodeEducacionMVCApp.Models;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Data.SqlClient;
+using System.Configuration;
 using iTextSharp.text.html.simpleparser;
 
 namespace MinisteriodeEducacionMVCApp.Controllers
@@ -35,14 +39,16 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             {
                 if (id == null)
                 {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    TempData["DErr"] = "Tiempo de la Sesion Finalizado";
+                    return RedirectToAction("Logout", "Login");
                 }
                 //Estudiante estudiante = db.Estudiante.Find(id);
                 //Vista_Perfil perfil = db.Vista_Perfil.Find(id);
                 Vista_Perfil perfil = db.Vista_Perfil.Where(x => x.id == id).FirstOrDefault();
                 if (perfil == null)
                 {
-                    return HttpNotFound();
+                    TempData["DErr"] = "Tiempo de la Sesion Finalizado";
+                    return RedirectToAction("Index", "Login");
                 }
                 return View(perfil);
             }
@@ -67,7 +73,8 @@ namespace MinisteriodeEducacionMVCApp.Controllers
                 {
                     return HttpNotFound();
                 }
-                DownloadPDF();
+                //CrearPDF(perfil);
+                DownloadPDF(perfil);
                 return View(perfil);
             
             }
@@ -100,7 +107,9 @@ namespace MinisteriodeEducacionMVCApp.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-        public byte[] GetPDF(string pHTML)
+
+            public byte[] GetPDF(string pHTML)
+
         {
             byte[] bPDF = null;
 
@@ -131,12 +140,26 @@ namespace MinisteriodeEducacionMVCApp.Controllers
 
             bPDF = ms.ToArray();
 
-            return bPDF;
+             return bPDF;
+            
         }
-        public void DownloadPDF()
+        public void DownloadPDF(Vista_Perfil perfil)
         {
-            string HTMLContent = "Hello <b>World</b>";
 
+            string HTMLContent = "<h5 align ='Left'>Ministerio de Educacion</h5> <br/>"+
+                                 "< h1 align = 'center' >< b >Certificado de Bachiller</ b ></ h1 > <br/>" +
+                                 "< h3 align = 'Left' >< b > Nombre Completo:</ b > "+perfil.nombreCompleto.ToString()+" </ h3 >"+
+                                 "< h3 align = 'Left' >< b > Colegio:</ b >" + perfil.colegio.ToString() + "</ h3 >" +
+                                 "< h3 align = 'Left' >< b > Promocion:</ b > " + perfil.nombrePromo.ToString() + " </ h3 >" +
+                                 "< h3 align = 'Left' >< b > Año:</ b > " + perfil.año.ToString() + " </ h3 >" +
+                                 "< h3 align = 'Left' >< b > Promedio:</ b > " + perfil.promedio.ToString() + " </ h3 >" +
+                                 "< h3 align = 'Left' >< b > Año:</ b > " + perfil.año.ToString() + " </ h3 >" +      
+                                 "< br />"+
+                                 "< br />"+
+                                 "< br />"+
+                                 "< h5 align = 'left' >< b > Fecha Diploma:</ b >"+perfil.fecha.ToString()+"</ h5 >" +
+                                 "< h5 align = 'left' >< b > Codigo Hex:</ b > " + perfil.codigohex.ToString() + " </ h5 >" +
+                                 "< h5 align = 'left' >< b > Codigo Legalizacion:</ b > " + perfil.codigoLegalizacion.ToString() + " </ h5 >";
             Response.Clear();
             Response.ContentType = "application/pdf";
             Response.AddHeader("content-disposition", "attachment;filename=" + ""+TempData["login"]+"PDFfile.pdf");
@@ -144,6 +167,6 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             Response.BinaryWrite(GetPDF(HTMLContent));
             Response.End();
         }
-
+     
     }
 }
