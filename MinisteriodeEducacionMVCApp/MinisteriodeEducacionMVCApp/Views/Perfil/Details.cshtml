@@ -86,6 +86,7 @@
             </dd>
             </dl>
             <h4>Datos del Certificado</h4>
+            <h5>La descargar del <b>Certificado de Bachiller</b> se habilitara una vez que este sea validado y legalizado</h5>
             <hr />
             <dl class="dl-horizontal">
                 <dt>
@@ -119,6 +120,17 @@
                 </dd>
 
             </dl>
+                @using (Html.BeginForm("Details", "Perfil", FormMethod.Post))
+                {
+                    if(Model.codigoLegalizacion != null)
+                    {
+                        <div class="form-group">
+                            <div class="col-md-offset-0 col-md-10">
+                                <input type="submit" value="Descargar Certificado Legalizado" class="btn btn-default" />
+                            </div>
+                        </div>
+                    }
+                }
     </div>
 </div>
 <p>
