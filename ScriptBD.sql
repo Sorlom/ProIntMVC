@@ -95,6 +95,8 @@ firmaDigital varchar(800)null,
 fechaL date null,
 nroRegistroMins int not null foreign key references PersonalMinisterio (nroRegistroMins),
 idDiploma int not null foreign key references Diploma(idDiploma)
+
+insert into Legalizacion values (null,null,1,10)
 )
 go
 Create table Estudiante(
@@ -723,27 +725,25 @@ insert into Bitacora values('Se modifico Colegio: '+@Nom+' con id: '+convert(cha
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 create trigger tg_alta_Legalizacion on Legalizacion for insert
 as
-declare @Nom as varchar(300)
 declare @Codclie as int
-set @Nom = (select firmaDigital from inserted)
 set @Codclie = (select idLegalizacion from inserted)
-insert into Bitacora values('Se guardo Legalizacion: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+insert into Bitacora values('Se guardo Legalizacion: con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
 go
 create trigger tg_baja_Legalizacion on Legalizacion for delete
 as
-declare @Nom as varchar(300)
 declare @Codclie as int
-set @Nom = (select firmaDigital from inserted)
 set @Codclie = (select idLegalizacion from inserted)
-insert into Bitacora values('Se elimino Legalizacion: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+insert into Bitacora values('Se elimino Legalizacion: con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
 go
 create trigger tg_Mod_Legalizacion on Legalizacion for update
 as
-declare @Nom as varchar(300)
 declare @Codclie as int
-set @Nom = (select firmaDigital from inserted)
 set @Codclie = (select idLegalizacion from inserted)
-insert into Bitacora values('Se modifico Legalizacion: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+insert into Bitacora values('Se modifico Legalizacion: con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+
+drop trigger tg_alta_Legalizacion
+drop trigger tg_baja_Legalizacion
+drop trigger tg_Mod_Legalizacion
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 create trigger tg_alta_GDiploma on GrupoDiploma for insert
@@ -770,3 +770,7 @@ set @Nom = (select nombre from inserted)
 set @Codclie = (select idGrupoDiploma from inserted)
 insert into Bitacora values('Se modifico GrupoDiploma: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+select * from Bitacora
+
+select * from legalizacion
+select * from Diploma
