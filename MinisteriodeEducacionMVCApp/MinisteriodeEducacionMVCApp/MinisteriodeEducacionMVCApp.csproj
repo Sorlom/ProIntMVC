@@ -154,6 +154,7 @@
     <Compile Include="Controllers\LegalizacionController.cs" />
     <Compile Include="Controllers\ListadeEstudiantesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -215,7 +216,13 @@
     <Compile Include="Models\Vista_ListaE.cs">
       <DependentUpon>BDMVCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Vista_NoPerfil.cs">
+      <DependentUpon>BDMVCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Vista_PC_Rol.cs">
+      <DependentUpon>BDMVCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_Perfil.cs">
       <DependentUpon>BDMVCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MyRoleProviders.cs" />
@@ -305,6 +312,9 @@
     <Content Include="Views\Estudiante\Edit.cshtml" />
     <Content Include="Views\Estudiante\Index.cshtml" />
     <Content Include="Views\ListadeEstudiantes\ImportarLista.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Perfil\Details.cshtml" />
+    <Content Include="Views\Perfil\Nocert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

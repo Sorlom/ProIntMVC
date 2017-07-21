@@ -42,6 +42,8 @@ namespace MinisteriodeEducacionMVCApp.Models
         public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<Vista_ListaE> Vista_ListaE { get; set; }
         public virtual DbSet<Vista_PC_Rol> Vista_PC_Rol { get; set; }
+        public virtual DbSet<Vista_Perfil> Vista_Perfil { get; set; }
+        public virtual DbSet<Vista_NoPerfil> Vista_NoPerfil { get; set; }
     
         public virtual ObjectResult<Diploma> sp_CrearDiplomas()
         {

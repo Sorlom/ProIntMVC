@@ -34,9 +34,13 @@
                             <li>@Html.ActionLink("Grupo Diplomas", "Index", "GrupoDiplomas")</li>
                             <li>@Html.ActionLink("Diplomas", "Index", "Diploma")</li>
                         }
-                        if (User.IsInRole("R1") || User.IsInRole("R2") || User.IsInRole("R3"))
+                        if (User.IsInRole("R1") || User.IsInRole("R2"))
                         {
                             <li>@Html.ActionLink("Estudiante", "Index", "Estudiante")</li>
+                        }
+                        if (User.IsInRole("R3"))
+                        {
+                            <<li>@Html.ActionLink("Certificado de Bachiller", "Index", "Perfil")</li>
                         }
                             <li><a href="#">Bienvenido Usuario: @User.Identity.Name</a></li>
                             <li>@Html.ActionLink("Logout", "Logout", "Login")</li>

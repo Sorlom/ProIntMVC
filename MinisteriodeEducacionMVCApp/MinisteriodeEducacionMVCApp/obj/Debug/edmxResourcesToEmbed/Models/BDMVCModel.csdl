@@ -508,5 +508,56 @@
       <Parameter Name="csvPath" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_CrearDiploma" EntitySet="Diploma" ReturnType="Collection(ProIntBDModel.Diploma)" />
+    <EntitySet Name="Vista_Perfil" EntityType="ProIntBDModel.Vista_Perfil" />
+    <EntitySet Name="Vista_NoPerfil" EntityType="ProIntBDModel.Vista_NoPerfil" />
   </EntityContainer>
+  <EntityType Name="Vista_Perfil">
+    <Key>
+      <PropertyRef Name="nombreCompleto" />
+      <PropertyRef Name="telefono" />
+      <PropertyRef Name="direccion" />
+      <PropertyRef Name="CI" />
+      <PropertyRef Name="paralelo" />
+      <PropertyRef Name="promedio" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="año" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="colegio" />
+      <PropertyRef Name="metadatos" />
+      <PropertyRef Name="codigohex" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="nombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="Int32" Nullable="false" />
+    <Property Name="direccion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CI" Type="Int32" Nullable="false" />
+    <Property Name="paralelo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="promedio" Type="Double" Nullable="false" />
+    <Property Name="nombrePromo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="año" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="colegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="metadatos" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="codigohex" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="codigoLegalizacion" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vista_NoPerfil">
+    <Key>
+      <PropertyRef Name="nombreCompleto" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="año" />
+      <PropertyRef Name="colegio" />
+    </Key>
+    <Property Name="id" Type="Int32" />
+    <Property Name="nombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="Int32" />
+    <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CI" Type="Int32" />
+    <Property Name="paralelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="promedio" Type="Double" />
+    <Property Name="nombrePromo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="año" Type="Int32" Nullable="false" />
+    <Property Name="colegio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

@@ -188,6 +188,26 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_ListaE' no tiene definida
     <Property Name="idDiploma" Type="int" />
   </EntityType>
   <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_NoPerfil' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Vista_NoPerfil">
+    <Key>
+      <PropertyRef Name="nombreCompleto" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="año" />
+      <PropertyRef Name="colegio" />
+    </Key>
+    <Property Name="id" Type="int" />
+    <Property Name="nombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+    <Property Name="telefono" Type="int" />
+    <Property Name="direccion" Type="varchar" MaxLength="200" />
+    <Property Name="CI" Type="int" />
+    <Property Name="paralelo" Type="varchar" MaxLength="50" />
+    <Property Name="promedio" Type="float" />
+    <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="año" Type="int" Nullable="false" />
+    <Property Name="colegio" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Vista_PC_Rol">
     <Key>
@@ -198,6 +218,39 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
     <Property Name="loginPColegio" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="passPColegio" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="idRol" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_Perfil' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Vista_Perfil">
+    <Key>
+      <PropertyRef Name="nombreCompleto" />
+      <PropertyRef Name="nombrePromo" />
+      <PropertyRef Name="año" />
+      <PropertyRef Name="colegio" />
+      <PropertyRef Name="telefono" />
+      <PropertyRef Name="direccion" />
+      <PropertyRef Name="CI" />
+      <PropertyRef Name="paralelo" />
+      <PropertyRef Name="promedio" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="metadatos" />
+      <PropertyRef Name="codigohex" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="nombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+    <Property Name="telefono" Type="int" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="CI" Type="int" Nullable="false" />
+    <Property Name="paralelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="promedio" Type="float" Nullable="false" />
+    <Property Name="nombrePromo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="año" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="colegio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="metadatos" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="codigohex" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="codigoLegalizacion" Type="varchar" MaxLength="800" />
   </EntityType>
   <Association Name="FK__Colegio__nroRegi__1B0907CE">
     <End Role="PersonalMinisterio" Type="Self.PersonalMinisterio" Multiplicity="1" />
@@ -465,12 +518,44 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
     [Vista_ListaE].[idDiploma] AS [idDiploma]
     FROM [dbo].[Vista_ListaE] AS [Vista_ListaE]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="Vista_NoPerfil" EntityType="Self.Vista_NoPerfil" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Vista_NoPerfil].[id] AS [id], 
+    [Vista_NoPerfil].[nombreCompleto] AS [nombreCompleto], 
+    [Vista_NoPerfil].[telefono] AS [telefono], 
+    [Vista_NoPerfil].[direccion] AS [direccion], 
+    [Vista_NoPerfil].[CI] AS [CI], 
+    [Vista_NoPerfil].[paralelo] AS [paralelo], 
+    [Vista_NoPerfil].[promedio] AS [promedio], 
+    [Vista_NoPerfil].[nombrePromo] AS [nombrePromo], 
+    [Vista_NoPerfil].[año] AS [año], 
+    [Vista_NoPerfil].[colegio] AS [colegio]
+    FROM [dbo].[Vista_NoPerfil] AS [Vista_NoPerfil]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="Vista_PC_Rol" EntityType="Self.Vista_PC_Rol" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Vista_PC_Rol].[loginPColegio] AS [loginPColegio], 
     [Vista_PC_Rol].[passPColegio] AS [passPColegio], 
     [Vista_PC_Rol].[idRol] AS [idRol]
     FROM [dbo].[Vista_PC_Rol] AS [Vista_PC_Rol]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Vista_Perfil" EntityType="Self.Vista_Perfil" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Vista_Perfil].[id] AS [id], 
+    [Vista_Perfil].[nombreCompleto] AS [nombreCompleto], 
+    [Vista_Perfil].[telefono] AS [telefono], 
+    [Vista_Perfil].[direccion] AS [direccion], 
+    [Vista_Perfil].[CI] AS [CI], 
+    [Vista_Perfil].[paralelo] AS [paralelo], 
+    [Vista_Perfil].[promedio] AS [promedio], 
+    [Vista_Perfil].[nombrePromo] AS [nombrePromo], 
+    [Vista_Perfil].[año] AS [año], 
+    [Vista_Perfil].[fecha] AS [fecha], 
+    [Vista_Perfil].[colegio] AS [colegio], 
+    [Vista_Perfil].[metadatos] AS [metadatos], 
+    [Vista_Perfil].[codigohex] AS [codigohex], 
+    [Vista_Perfil].[codigoLegalizacion] AS [codigoLegalizacion]
+    FROM [dbo].[Vista_Perfil] AS [Vista_Perfil]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__Colegio__nroRegi__1B0907CE" Association="Self.FK__Colegio__nroRegi__1B0907CE">
       <End Role="PersonalMinisterio" EntitySet="PersonalMinisterio" />

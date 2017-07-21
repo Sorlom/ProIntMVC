@@ -188,5 +188,41 @@
     <FunctionImportMapping FunctionImportName="sp_CrearDiplomas" FunctionName="ProIntBDModel.Store.sp_CrearDiplomas" />
     <FunctionImportMapping FunctionImportName="sp_ImportCSV" FunctionName="ProIntBDModel.Store.sp_ImportCSV" />
     <FunctionImportMapping FunctionImportName="sp_CrearDiploma" FunctionName="ProIntBDModel.Store.sp_CrearDiplomas" />
+    <EntitySetMapping Name="Vista_Perfil">
+      <EntityTypeMapping TypeName="ProIntBDModel.Vista_Perfil">
+        <MappingFragment StoreEntitySet="Vista_Perfil">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigoLegalizacion" ColumnName="codigoLegalizacion" />
+          <ScalarProperty Name="codigohex" ColumnName="codigohex" />
+          <ScalarProperty Name="metadatos" ColumnName="metadatos" />
+          <ScalarProperty Name="colegio" ColumnName="colegio" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+          <ScalarProperty Name="promedio" ColumnName="promedio" />
+          <ScalarProperty Name="paralelo" ColumnName="paralelo" />
+          <ScalarProperty Name="CI" ColumnName="CI" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vista_NoPerfil">
+      <EntityTypeMapping TypeName="ProIntBDModel.Vista_NoPerfil">
+        <MappingFragment StoreEntitySet="Vista_NoPerfil">
+          <ScalarProperty Name="colegio" ColumnName="colegio" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="nombrePromo" ColumnName="nombrePromo" />
+          <ScalarProperty Name="promedio" ColumnName="promedio" />
+          <ScalarProperty Name="paralelo" ColumnName="paralelo" />
+          <ScalarProperty Name="CI" ColumnName="CI" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -38,6 +38,8 @@
         <AssociationConnector Association="ProIntBDModel.FK__PersonalM__idRol__173876EA" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.FK__Privilegi__idRol__22AA2996" ManuallyRouted="false" />
         <AssociationConnector Association="ProIntBDModel.PColegio_Rol" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProIntBDModel.Vista_Perfil" Width="1.5" PointX="8.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ProIntBDModel.Vista_NoPerfil" Width="1.5" PointX="0.75" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

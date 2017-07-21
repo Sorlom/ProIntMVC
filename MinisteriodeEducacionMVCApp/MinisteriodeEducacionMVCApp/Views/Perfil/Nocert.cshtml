@@ -1,0 +1,128 @@
+﻿
+@model MinisteriodeEducacionMVCApp.Models.Vista_NoPerfil
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Certificado de Bachiller</h2>
+
+<div>
+    <div>
+        <h4>Datos del Estudiante</h4>
+        <h5>Usted no tiene Certificado de Bachiller: Promedio por debajo de 51</h5>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.nombreCompleto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombreCompleto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CI)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CI)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.paralelo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.paralelo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.colegio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.colegio)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.nombrePromo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombrePromo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.año)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.año)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.promedio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.promedio)
+            </dd>
+        </dl>
+        <h4>Datos del Certificado</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("metadatos")
+            </dt>
+
+            <dd>
+                @Html.Display("No hay")
+            </dd>
+
+            <dt>
+                @Html.DisplayName("fecha")
+            </dt>
+            <dd>
+                @Html.Display("No hay")
+            </dd>
+
+            <dt>
+                @Html.DisplayName("codigohex")
+            </dt>
+            <dd>
+                @Html.Display("No hay")
+            </dd>
+
+            <dt>
+                @Html.DisplayName("codigoLegalizacion")
+            </dt>
+
+            <dd>
+                @Html.Display("No hay")
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Volver a Inicio", "Index", "Home")
+</p>
