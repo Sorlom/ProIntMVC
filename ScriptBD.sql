@@ -696,3 +696,77 @@ end
 
 execute sp_reporte5
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create trigger tg_alta_Colegio on Colegio for insert
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select nombre from inserted)
+set @Codclie = (select idColegio from inserted)
+insert into Bitacora values('Se guardo Colegio: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_Colegio on Colegio for delete
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select nombre from inserted)
+set @Codclie = (select idColegio from inserted)
+insert into Bitacora values('Se elimino Colegio: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_Colegio on Colegio for update
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select nombre from inserted)
+set @Codclie = (select idColegio from inserted)
+insert into Bitacora values('Se modifico Colegio: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create trigger tg_alta_Legalizacion on Legalizacion for insert
+as
+declare @Nom as varchar(300)
+declare @Codclie as int
+set @Nom = (select firmaDigital from inserted)
+set @Codclie = (select idLegalizacion from inserted)
+insert into Bitacora values('Se guardo Legalizacion: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_Legalizacion on Legalizacion for delete
+as
+declare @Nom as varchar(300)
+declare @Codclie as int
+set @Nom = (select firmaDigital from inserted)
+set @Codclie = (select idLegalizacion from inserted)
+insert into Bitacora values('Se elimino Legalizacion: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_Legalizacion on Legalizacion for update
+as
+declare @Nom as varchar(300)
+declare @Codclie as int
+set @Nom = (select firmaDigital from inserted)
+set @Codclie = (select idLegalizacion from inserted)
+insert into Bitacora values('Se modifico Legalizacion: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create trigger tg_alta_GDiploma on GrupoDiploma for insert
+as
+declare @Nom as varchar(300)
+declare @Codclie as int
+set @Nom = (select nombre from inserted)
+set @Codclie = (select idGrupoDiploma from inserted)
+insert into Bitacora values('Se guardo GrupoDiploma: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_GDiploma on GrupoDiploma for delete
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select nombre from inserted)
+set @Codclie = (select idGrupoDiploma from inserted)
+insert into Bitacora values('Se elimino GrupoDiploma: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_GDiploma on GrupoDiploma for update
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select nombre from inserted)
+set @Codclie = (select idGrupoDiploma from inserted)
+insert into Bitacora values('Se modifico GrupoDiploma: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
