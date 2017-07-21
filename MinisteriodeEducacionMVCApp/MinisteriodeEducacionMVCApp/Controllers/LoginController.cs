@@ -18,19 +18,30 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
+            if (TempData["DErr"] != null)
+            {
+                ViewBag.Msg = TempData["DErr"].ToString();
+            }
             return View();
         }
         [AllowAnonymous]
         [HttpPost]
         public ActionResult Index(FormCollection fc)
         {
+            
             string acc = fc["Nom"].ToString();
             string pass = GetMD5(fc["Pass"].ToString());
-
+            TempData["Login"] = acc;
+         
             var countPC = db.PersonalColegio.Where(x => x.loginPColegio == acc && x.passPColegio == pass).Count();
             var countPM = db.PersonalMinisterio.Where(x => x.loginMinistro == acc && x.passMinistro == pass).Count();
             var countPE = db.Estudiante.Where(x => x.loginEstudiante == acc && x.passEstudiante == pass).Count();
 
+            if (countPE == 1)
+            {
+                var idlogin = db.Estudiante.Where(x => x.loginEstudiante == acc && x.passEstudiante == pass).FirstOrDefault().idListaEstudiante;
+                TempData["IDlogin"] = idlogin;
+            }
             if (countPC == 1 || countPE == 1 || countPM == 1)
             {
                 FormsAuthentication.SetAuthCookie(acc, false);
@@ -44,6 +55,8 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         }
         public ActionResult Logout()
         {
+            TempData["Login"] = "";
+            TempData["IDlogin"] = "";
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Login");
         }

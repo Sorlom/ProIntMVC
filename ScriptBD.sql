@@ -376,9 +376,15 @@ while (@@FETCH_STATUS = 0)
 	end
 close Vuelta
 deallocate Vuelta
+
+select * from Diploma
 end
 
+drop procedure sp_CrearDiplomas
+
 execute sp_CrearDiplomas
+
+select * from Vista_ListaE
 ----------------------------------------------------------------------------------------------------------------------
 
 update  PersonalColegio set passPColegio = 'baf8a7ba583324dc0a81070d3349a3d3' where nroRegistroPColegio = 1
@@ -388,3 +394,6 @@ update  PersonalColegio set passPColegio = 'aeabd5b1570d06a00c19d0d7e38d6f4a' wh
 update  PersonalMinisterio  set passMinistro = '1c51a52b9d45a32b5779f7a020950093' where nroRegistroMins = 1
 update  PersonalMinisterio  set passMinistro = 'e3afed0047b08059d0fada10f400c1e5' where nroRegistroMins = 2
 
+update ListadeEstudiantes set idDiploma = null where idListaEstudiante = 28
+
+select * from Estudiante

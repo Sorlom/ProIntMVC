@@ -187,5 +187,6 @@
     </AssociationSetMapping>
     <FunctionImportMapping FunctionImportName="sp_CrearDiplomas" FunctionName="ProIntBDModel.Store.sp_CrearDiplomas" />
     <FunctionImportMapping FunctionImportName="sp_ImportCSV" FunctionName="ProIntBDModel.Store.sp_ImportCSV" />
+    <FunctionImportMapping FunctionImportName="sp_CrearDiploma" FunctionName="ProIntBDModel.Store.sp_CrearDiplomas" />
   </EntityContainerMapping>
 </Mapping>

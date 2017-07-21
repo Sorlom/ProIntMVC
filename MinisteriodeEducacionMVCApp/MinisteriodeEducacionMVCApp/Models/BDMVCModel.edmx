@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProIntBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProIntBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bitacora">
           <Key>
             <PropertyRef Name="codbit" />
@@ -554,8 +554,7 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
             <End Role="Privilegios" EntitySet="Privilegios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProIntBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1062,10 +1061,11 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
             <End Role="Rol" EntitySet="Rol" />
             <End Role="PersonalColegio" EntitySet="PersonalColegio" />
           </AssociationSet>
-          <FunctionImport Name="sp_CrearDiplomas" />
+          <FunctionImport Name="sp_CrearDiplomas" EntitySet="Diploma" ReturnType="Collection(ProIntBDModel.Diploma)" />
           <FunctionImport Name="sp_ImportCSV">
-            <Parameter Name="csvPath" Mode="In" Type="String" />
+          <Parameter Name="csvPath" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_CrearDiploma" EntitySet="Diploma" ReturnType="Collection(ProIntBDModel.Diploma)" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1259,6 +1259,7 @@ advertencia 6002: La tabla o vista 'ProIntBD.dbo.Vista_PC_Rol' no tiene definida
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="sp_CrearDiplomas" FunctionName="ProIntBDModel.Store.sp_CrearDiplomas" />
           <FunctionImportMapping FunctionImportName="sp_ImportCSV" FunctionName="ProIntBDModel.Store.sp_ImportCSV" />
+          <FunctionImportMapping FunctionImportName="sp_CrearDiploma" FunctionName="ProIntBDModel.Store.sp_CrearDiplomas" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

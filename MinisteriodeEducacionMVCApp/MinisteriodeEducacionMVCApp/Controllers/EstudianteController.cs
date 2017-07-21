@@ -41,7 +41,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             }
             return View(estudiante);
         }
-        [Authorize(Roles = "R1,R2")]
+        [AllowAnonymous]
         // GET: Estudiante/Create
         public ActionResult Create()
         {
@@ -50,7 +50,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             ViewBag.CI = new SelectList(db.Persona, "CI", "CI");
             return View();
         }
-        [Authorize(Roles = "R1,R2")]
+        [AllowAnonymous]
         // POST: Estudiante/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -60,25 +60,36 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                var correoIng = estudiante.correo;
+                var correoGuar = db.ListadeEstudiantes.Where(x => x.correo == correoIng).FirstOrDefault().correo;
+                if (correoIng == correoGuar)
                 {
-                    db.Estudiante.Add(estudiante);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                    if (ModelState.IsValid)
+                    {
+                        db.Estudiante.Add(estudiante);
+                        db.SaveChanges();
+                        TempData["DErr"] = "Registro Exitoso";
+                        return RedirectToAction("Index","Login");
+                    }
 
-                ViewBag.idListaEstudiante = new SelectList(db.ListadeEstudiantes, "idListaEstudiante", "nombre", estudiante.idListaEstudiante);
-                ViewBag.idRol = new SelectList(db.Rol, "idRol", "nombre", estudiante.idRol);
-                ViewBag.CI = new SelectList(db.Persona, "CI", "nombre", estudiante.CI);
-                return View(estudiante);
+                    ViewBag.idListaEstudiante = new SelectList(db.ListadeEstudiantes, "idListaEstudiante", "nombre", estudiante.idListaEstudiante);
+                    ViewBag.idRol = new SelectList(db.Rol, "idRol", "nombre", estudiante.idRol);
+                    ViewBag.CI = new SelectList(db.Persona, "CI", "nombre", estudiante.CI);
+                    return View(estudiante);
+                }
+                else
+                {
+                    TempData["DErr"] = "Los Correos Deben ser iguales: Es estudiante no se encuentra en una lista";
+                    return RedirectToAction("Index", "Login");
+                }
             }
             catch (Exception e)
             {
                 TempData["DErr"] = "Error de Datos al Crear Estudiante";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Login");
             }
         }
-        [Authorize(Roles = "R1,R2")]
+        [Authorize(Roles = "R1")]
         // GET: Estudiante/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -96,7 +107,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             ViewBag.CI = new SelectList(db.Persona, "CI", "CI", estudiante.CI);
             return View(estudiante);
         }
-        [Authorize(Roles = "R1,R2")]
+        [Authorize(Roles = "R1")]
         // POST: Estudiante/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -115,7 +126,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             ViewBag.CI = new SelectList(db.Persona, "CI", "CI", estudiante.CI);
             return View(estudiante);
         }
-        [Authorize(Roles = "R1,R2")]
+        [Authorize(Roles = "R1")]
         // GET: Estudiante/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -130,7 +141,7 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             }
             return View(estudiante);
         }
-        [Authorize(Roles = "R1,R2")]
+        [Authorize(Roles = "R1")]
         // POST: Estudiante/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

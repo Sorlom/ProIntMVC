@@ -54,9 +54,7 @@
             @Html.DisplayFor(modelItem => item.Persona.CI)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.nroRegistroEst }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.nroRegistroEst }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.nroRegistroEst })
+            @Html.ActionLink("Detalles", "Details", new { id=item.nroRegistroEst }) 
         </td>
     </tr>
 }

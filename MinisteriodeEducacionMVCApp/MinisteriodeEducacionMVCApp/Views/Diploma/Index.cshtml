@@ -4,11 +4,25 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Diploma</h2>
 
-<p>
-    @Html.ActionLink("Crear Nuevo", "Create")
-</p>
+@using (Html.BeginForm("Index", "Diploma", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Lista de Diplomas</h4>
+        <h5>@ViewBag.Msg</h5>
+        <hr />
+        <p> *La creacion del diploma se realizara de manera automatica, dependiento que es estudiante tenga un promedio mayor a 51</p>
+  
+        <div class="form-group">
+            <div class="col-md-offset-0 col-md-10">
+                <input type="submit" value="Crear Diplomas" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
 <table class="table">
     <tr>
         <th>
@@ -59,9 +73,7 @@
             @Html.DisplayFor(modelItem => item.GrupoDiploma.nombre)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.idDiploma }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.idDiploma }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.idDiploma })
+            @Html.ActionLink("Detalles", "Details", new { id=item.idDiploma })
         </td>
     </tr>
 }

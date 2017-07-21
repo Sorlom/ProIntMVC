@@ -43,9 +43,14 @@ namespace MinisteriodeEducacionMVCApp.Models
         public virtual DbSet<Vista_ListaE> Vista_ListaE { get; set; }
         public virtual DbSet<Vista_PC_Rol> Vista_PC_Rol { get; set; }
     
-        public virtual int sp_CrearDiplomas()
+        public virtual ObjectResult<Diploma> sp_CrearDiplomas()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_CrearDiplomas");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Diploma>("sp_CrearDiplomas");
+        }
+    
+        public virtual ObjectResult<Diploma> sp_CrearDiplomas(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Diploma>("sp_CrearDiplomas", mergeOption);
         }
     
         public virtual int sp_ImportCSV(string csvPath)
@@ -55,6 +60,16 @@ namespace MinisteriodeEducacionMVCApp.Models
                 new ObjectParameter("csvPath", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ImportCSV", csvPathParameter);
+        }
+    
+        public virtual ObjectResult<Diploma> sp_CrearDiploma()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Diploma>("sp_CrearDiploma");
+        }
+    
+        public virtual ObjectResult<Diploma> sp_CrearDiploma(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Diploma>("sp_CrearDiploma", mergeOption);
         }
     }
 }

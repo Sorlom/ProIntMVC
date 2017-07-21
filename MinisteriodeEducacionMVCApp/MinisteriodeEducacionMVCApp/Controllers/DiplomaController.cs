@@ -21,6 +21,13 @@ namespace MinisteriodeEducacionMVCApp.Controllers
             var diploma = db.Diploma.Include(d => d.GrupoDiploma);
             return View(diploma.ToList());
         }
+        [HttpPost]
+        public ActionResult Index(int? id)
+        {
+            //var diploma = db.Diploma.Include(d => d.GrupoDiploma);
+            var lista = db.Database.SqlQuery<Diploma>("sp_CrearDiplomas").ToList();
+            return View(lista);
+        }
 
         // GET: Diploma/Details/5
         public ActionResult Details(int? id)

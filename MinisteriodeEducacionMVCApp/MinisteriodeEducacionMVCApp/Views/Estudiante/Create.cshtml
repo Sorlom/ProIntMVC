@@ -55,9 +55,7 @@
                 @Html.ValidationMessageFor(model => model.CI, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        
-
+       
         <div class="form-group">
             @Html.LabelFor(model => model.idRol, "Rol", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -76,7 +74,7 @@
 }
 
 <div>
-    @Html.ActionLink("Volver a la Lista", "Index")
+    @Html.ActionLink("Volver a Login", "Index","Login")
 </div>
 
 @section Scripts {

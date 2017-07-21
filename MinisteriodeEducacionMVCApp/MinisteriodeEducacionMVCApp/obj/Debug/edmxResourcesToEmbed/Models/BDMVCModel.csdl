@@ -503,9 +503,10 @@
       <End Role="Rol" EntitySet="Rol" />
       <End Role="PersonalColegio" EntitySet="PersonalColegio" />
     </AssociationSet>
-    <FunctionImport Name="sp_CrearDiplomas" />
+    <FunctionImport Name="sp_CrearDiplomas" EntitySet="Diploma" ReturnType="Collection(ProIntBDModel.Diploma)" />
     <FunctionImport Name="sp_ImportCSV">
       <Parameter Name="csvPath" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="sp_CrearDiploma" EntitySet="Diploma" ReturnType="Collection(ProIntBDModel.Diploma)" />
   </EntityContainer>
 </Schema>

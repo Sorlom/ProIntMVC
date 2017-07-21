@@ -145,10 +145,19 @@ namespace MinisteriodeEducacionMVCApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ListadeEstudiantes listadeEstudiantes = db.ListadeEstudiantes.Find(id);
-            db.ListadeEstudiantes.Remove(listadeEstudiantes);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            var Del = db.Estudiante.Where(x => x.idListaEstudiante == id).Count();
+            if (Del == 1)
+            {
+                TempData["DErr2"] = "Estudiante con Login en la APP: Borrar primero Cuenta de Estudiante";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ListadeEstudiantes listadeEstudiantes = db.ListadeEstudiantes.Find(id);
+                db.ListadeEstudiantes.Remove(listadeEstudiantes);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
         [HttpGet]
         public ActionResult ImportarLista()

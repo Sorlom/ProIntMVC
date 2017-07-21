@@ -41,9 +41,7 @@
             @Html.DisplayFor(modelItem => item.PersonalMinisterio.loginMinistro)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.idLegalizacion }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.idLegalizacion }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.idLegalizacion })
+            @Html.ActionLink("Detalle", "Details", new { id=item.idLegalizacion })
         </td>
     </tr>
 }
